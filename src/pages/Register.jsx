@@ -30,7 +30,6 @@ const containerVariants = {
 const Register = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.ui.registerLoading);
-
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -43,16 +42,30 @@ const Register = () => {
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string().required("Required"),
       password_confirmation: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must much")
+        .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Required"),
     }),
     onSubmit: async (values) => {
-      // console.log(values);
       try {
-        console.log(values);
-        await dispatch(register(values));
+        const response = await fetch('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/clientes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+  
+        if (response.ok) {
+          // Registro exitoso, puedes realizar acciones adicionales si es necesario
+          console.log('Usuario registrado exitosamente');
+          // Despacha la acción de registro para actualizar el estado en Redux
+          await dispatch(register(values));
+        } else {
+          // Manejar el caso en que la respuesta no sea exitosa
+          console.error('Error al registrar usuario:', response.statusText);
+        }
       } catch (error) {
-        console.log(error);
+        console.error('Error al realizar la solicitud POST:', error);
       }
     },
   });
