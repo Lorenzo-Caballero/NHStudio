@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HERO_URL } from '../utils/constants';
+//import { HERO_URL } from '../utils/constants';
 // import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -142,7 +142,6 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: .4 }}
                     >
-                        <img className="h-[75%]" src={HERO_URL} alt="" />
                     </motion.div>
                 </div>
             </div>
