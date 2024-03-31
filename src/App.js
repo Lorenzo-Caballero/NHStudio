@@ -40,7 +40,7 @@ const App = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  
+
   return (
     <>
       {!isAdmin && <MainNavigation />}
@@ -49,7 +49,7 @@ const App = () => {
         <Routes location={location} key={location.pathname}>
 
           <Route element={<HomeRedirect />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/LennitaBB" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />

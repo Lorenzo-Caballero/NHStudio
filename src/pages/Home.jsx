@@ -2,12 +2,10 @@ import React from 'react';
 
 import { motion } from 'framer-motion';
 
-import Hero from "../components/home/Hero";
-import Overview from '../components/home/Overview';
+import Banner from "../components/home/Banner";
 import FeaturedProducts from '../components/home/FeaturedProducts';
 import TheServices from '../components/home/TheServices';
 import TheContact from '../components/home/TheContact';
-
 
 const containerVariants = {
   hidden: {
@@ -32,10 +30,10 @@ const Home = () => {
       animate="visible"
       exit="exit"
     >
-      <Hero />
-      <Overview />
+      <Banner />
       <FeaturedProducts />
-      <TheServices />
+      <FeaturedProducts />
+      <TheServices/>
       <TheContact />
     </motion.main>
   );

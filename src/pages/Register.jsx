@@ -47,7 +47,7 @@ const Register = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await fetch('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/clientes', {
+        const response = await fetch('https://restapi-lennitabb-production.up.railway.app/api/clientes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const Register = () => {
           await dispatch(register(values));
         } else {
           // Manejar el caso en que la respuesta no sea exitosa
-          console.error('Error al registrar usuario:', response.statusText);
+          console.error('Error al registrar usuario:', response);
         }
       } catch (error) {
         console.error('Error al realizar la solicitud POST:', error);

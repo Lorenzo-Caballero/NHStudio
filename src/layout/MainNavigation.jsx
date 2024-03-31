@@ -112,8 +112,8 @@ const MainNavigation = () => {
             >
               <NavLink to="/">
                 <h1 className="text-3xl font-bold ml-2 select-none">
-                  <span className="text-primary">Fauno</span>
-                  <span className="text-secondary-200">Tattoo</span>
+                  <span className="text-primary">Lennita</span>
+                  <span className="text-secondary-200">BB</span>
                 </h1>
               </NavLink>
             </motion.div>
@@ -121,15 +121,7 @@ const MainNavigation = () => {
           <ul className="hidden md:flex items-center lg:ml-8">
             <li>
               <NavLink className="ml-4 p-2 lg:text-lg font-semibold" to="/">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="ml-2 p-2 lg:text-lg font-semibold"
-                to="/about"
-              >
-                About
+                Inicio
               </NavLink>
             </li>
             <li>
@@ -137,9 +129,34 @@ const MainNavigation = () => {
                 className="ml-2 p-2 lg:text-lg font-semibold"
                 to="/products"
               >
-                Products
+                Productos
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className="ml-2 p-2 lg:text-lg font-semibold"
+                to="/about"
+              >
+                Amigurumis Personalizados
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className="ml-2 p-2 lg:text-lg font-semibold"
+                to="/products"
+              >
+                Metodos de Pago
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className="ml-2 p-2 lg:text-lg font-semibold"
+                to="/about"
+              >
+                Metodos de Envio
+              </NavLink>
+            </li>
+
             <li>
               {isAuthenticated && (
                 <NavLink
@@ -193,17 +210,31 @@ const MainNavigation = () => {
       >
         <li className="border-b-2 border-zinc-300 w-full text-lg font-semibold text-gray-600">
           <NavLink to="/" onClick={navHandler}>
-            Home
-          </NavLink>
-        </li>
-        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
-          <NavLink to="/about" onClick={navHandler}>
-            About
+            Inicio
           </NavLink>
         </li>
         <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
           <NavLink to="/products" onClick={navHandler}>
-            Products
+            Productos
+          </NavLink>
+        </li>
+        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
+          <NavLink to="/about" onClick={navHandler}>
+            Amigurumis Personalizados
+          </NavLink>
+        </li>
+        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
+          <NavLink to="/products" onClick={navHandler}>
+            Como comprar
+          </NavLink>
+        </li>
+        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
+          <NavLink to="/products" onClick={navHandler}>
+            Metodos de pago
+          </NavLink>
+        </li> <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
+          <NavLink to="/products" onClick={navHandler}>
+            Metodos de envio
           </NavLink>
         </li>
         <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
