@@ -47,7 +47,7 @@ const Register = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await fetch('https://restapi-lennitabb-production.up.railway.app/api/clientes', {
+        const response = await fetch('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/clientes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const Register = () => {
           await dispatch(register(values));
         } else {
           // Manejar el caso en que la respuesta no sea exitosa
-          console.error('Error al registrar usuario:', response);
+          console.error('Error al registrar usuario:', response.statusText);
         }
       } catch (error) {
         console.error('Error al realizar la solicitud POST:', error);
@@ -79,14 +79,14 @@ const Register = () => {
     >
       <div className="w-[320px] sm:w-[400px] rounded shadow-xl border-2 border-solid px-4 sm:px-8 py-20 mx-auto">
         <h2 className="text-3xl uppercase tracking-wider font-bold text-center mb-12 select-none">
-          <span className="text-primary">tech</span>
-          <span className="text-secondary-200">shop</span>
+          <span className="text-primary">Fauno</span>
+          <span className="text-secondary-200">Tattoo</span>
         </h2>
         {loading ? <TheSpinner /> : 
         <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-col space-y-1 mb-4">
             <label htmlFor="name" className="font-semibold tracking-wider">
-              Name
+              Nombre
             </label>
             <div className="flex py-1">
               <span className="flex items-center justify-center border border-gray-300 border-r-0 py-2 px-3 bg-gray-300  text-black">
@@ -100,7 +100,7 @@ const Register = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.name}
                 className="form-input rounded-r w-full"
-                placeholder="Your name"
+                placeholder="Tu nombre"
               />
             </div>
             {formik.touched.name && formik.errors.name && (
@@ -125,7 +125,7 @@ const Register = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
                 className="form-input rounded-r w-full"
-                placeholder="example@domain.com"
+                placeholder="ejemplo@gmail.com"
               />
             </div>
             {formik.touched.email && formik.errors.email && (
@@ -136,7 +136,7 @@ const Register = () => {
           </div>
           <div className="flex flex-col space-y-1 mb-4">
             <label htmlFor="password" className="font-semibold tracking-wider">
-              Password
+              Contraseña
             </label>
             <div className="flex py-1">
               <span className="flex items-center justify-center border border-gray-300 border-r-0 py-2 px-3 bg-gray-300  text-black">
@@ -162,7 +162,7 @@ const Register = () => {
               htmlFor="password_confirmation"
               className="font-semibold tracking-wider"
             >
-              Confirm Password
+              Confirmar Contraseña
             </label>
             <div className="flex py-1">
               <span className="flex items-center justify-center border border-gray-300 border-r-0 py-2 px-3 bg-gray-300  text-black">
@@ -191,17 +191,17 @@ const Register = () => {
             type="submit"
             className="px-4 py-2 block mt-3 ml-auto text-primary border border-primary hover:text-white hover:bg-primary rounded-md"
           >
-            <span className="inline-flex justify-items-center mr-1">
+            <span className="inline-flex justify-content-center mr-1 text-center">
               <FiLogIn />{" "}
             </span>
-            Sign up
+            Enviar
           </button>
         </form>
         }
         <p className="text-center mt-6">
-          Already have an account?{" "}
+          Ya tenes una cuenta?{" "}
           <Link to="/login" className="text-primary">
-            Sign in
+            Iniciá sesión
           </Link>{" "}
         </p>
       </div>

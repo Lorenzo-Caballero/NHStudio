@@ -2,49 +2,46 @@ import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { XIcon } from "@heroicons/react/solid";
-import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
-
+import conejita from '../assets/coneji-removebg-preview.png';
 import HambergurMenu from "../assets/HambergurMenu.svg";
-// import Logo from '../assets/logo.svg';
 import NavCartButton from "../components/cart/NavCartButton";
-import { logout } from "../store/actions/auth-actions";
-
+import { useAuth } from "../components/context/AuthContext";
+import ImageUploadModal from "../components/products/ImageUploadModal";
 const MainNavigation = () => {
   const [showNav, setShowNav] = useState(false);
-  const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const token = useSelector((state) => state.auth.token);
+  const { isAuthenticated, logout, user, isAdmin } = useAuth(); // Obtenemos los valores del contexto
+  const [showDropdown, setShowDropdown] = useState(false); // Estado para controlar el dropdown
+  const [showDesignDropdown, setShowDesignDropdown] = useState(false); // Estado para controlar el dropdown de "Diseño"
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false); // Estado para controlar la apertura del modal de subida de imagen
 
+  const openImageModal = () => {
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+  const toggleDesignDropdown = () => {
+    setShowDesignDropdown(!showDesignDropdown);
+  };
   const navHandler = () => {
     setShowNav(!showNav);
   };
 
-  const logoutUser = () => {
-    dispatch(logout(token));
+  const logoutUser = async () => {
+    logout();
+    localStorage.removeItem('admin'); // Elimina el estado de administrador al cerrar sesión
   };
 
-  const svgVariants = {
-    hidden: { rotate: -180 },
-    visible: {
-      rotate: 0,
-      transition: { duration: 1 },
-    },
-  };
 
-  const pathVariants = {
-    hidden: {
-      opacity: 0,
-      pathLength: 0,
-    },
-    visible: {
-      opacity: 1,
-      pathLength: 1,
-      transition: {
-        duration: 3,
-        ease: "easeInOut",
-      },
-    },
+  const imageVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   };
 
   const buttonVariants = {
@@ -71,38 +68,15 @@ const MainNavigation = () => {
             >
               {/* <NavLink to='/'><img src={Logo} alt="" /></NavLink> */}
               <NavLink to="/">
-                <motion.svg
+                <motion.img
+                  src={conejita}
+                  alt="Machine Tattoo"
                   height="50"
                   width="50"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 300.004 300.004"
-                  xmlSpace="preserve"
-                  variants={svgVariants}
+                  variants={imageVariants}
                   initial="hidden"
                   animate="visible"
-                >
-                  <motion.path
-                    d="M278.891,244.965V105.231c0-4.143-3.357-7.5-7.5-7.5h-42.398V65.597c0-4.143-3.357-7.5-7.5-7.5H189.17V47.555
-                                        c0-21.6-17.57-39.173-39.168-39.173s-39.168,17.573-39.168,39.173v10.542H78.512c-4.143,0-7.5,3.357-7.5,7.5v32.134H28.613
-                                        c-4.142,0-7.5,3.357-7.5,7.5v139.734C9.438,245.174,0,254.721,0,266.446v3.676c0,11.855,9.645,21.5,21.5,21.5h257.004
-                                        c11.855,0,21.5-9.645,21.5-21.5v-3.676C300.004,254.721,290.566,245.174,278.891,244.965z M78.512,216.954h142.98
-                                        c4.143,0,7.5-3.357,7.5-7.5v-71.111h11.411v105.075H59.602V138.342h11.41v71.111C71.012,213.596,74.369,216.954,78.512,216.954z
-                                        M263.891,112.731v130.687h-8.487V130.842c0-4.143-3.357-7.5-7.5-7.5h-18.911v-10.611H263.891z M125.834,47.555
-                                        c0-13.329,10.842-24.173,24.168-24.173s24.168,10.844,24.168,24.173v10.542h-48.336V47.555z M86.012,73.097h24.822V85.94
-                                        c0,4.143,3.357,7.5,7.5,7.5c4.143,0,7.5-3.357,7.5-7.5V73.097h48.336V85.94c0,4.143,3.357,7.5,7.5,7.5c4.143,0,7.5-3.357,7.5-7.5
-                                        V73.097h24.822v128.856H86.012V73.097z M36.113,112.731h34.899v10.611h-18.91c-4.143,0-7.5,3.357-7.5,7.5v112.575h-8.488V112.731z
-                                        M285.004,270.122c0,3.584-2.916,6.5-6.5,6.5H21.5c-3.584,0-6.5-2.916-6.5-6.5v-3.676c0-3.584,2.916-6.5,6.5-6.5h257.004
-                                        c3.584,0,6.5,2.916,6.5,6.5V270.122z"
-                    variants={pathVariants}
-                    initial="hidden"
-                    animate="visible"
-                  />
-                </motion.svg>
+                />
               </NavLink>
             </motion.div>
             <motion.div
@@ -113,7 +87,7 @@ const MainNavigation = () => {
               <NavLink to="/">
                 <h1 className="text-3xl font-bold ml-2 select-none">
                   <span className="text-primary">Lennita</span>
-                  <span className="text-secondary-200">BB</span>
+                  <span className="text-purple-300">BB</span>
                 </h1>
               </NavLink>
             </motion.div>
@@ -127,17 +101,9 @@ const MainNavigation = () => {
             <li>
               <NavLink
                 className="ml-2 p-2 lg:text-lg font-semibold"
-                to="/products"
-              >
-                Productos
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="ml-2 p-2 lg:text-lg font-semibold"
                 to="/about"
               >
-                Amigurumis Personalizados
+                Sobre Mi
               </NavLink>
             </li>
             <li>
@@ -145,32 +111,13 @@ const MainNavigation = () => {
                 className="ml-2 p-2 lg:text-lg font-semibold"
                 to="/products"
               >
-                Metodos de Pago
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="ml-2 p-2 lg:text-lg font-semibold"
-                to="/about"
-              >
-                Metodos de Envio
+                Diseños
               </NavLink>
             </li>
 
-            <li>
-              {isAuthenticated && (
-                <NavLink
-                  className="ml-2 p-2 lg:text-lg font-semibold"
-                  to="/checkout"
-                >
-                  Checkout
-                </NavLink>
-              )}
-            </li>
           </ul>
         </div>
         <div className="hidden md:flex">
-          <NavCartButton />
           {!isAuthenticated && (
             <NavLink to="/login">
               <motion.button className="border-primary border-4 text-primary font-bold px-4 py-2 ml-2 rounded-full shadow-lg"
@@ -181,15 +128,66 @@ const MainNavigation = () => {
               </motion.button>
             </NavLink>
           )}
-          {isAuthenticated && (
-            <motion.button
-              onClick={logoutUser}
-              className="border-primary border-4 text-primary font-bold px-4 py-2 ml-2 rounded-full shadow-lg"
-              variants={buttonVariants}
-              whileHover="hover"
-            >
-              Logout
-            </motion.button>
+
+          {isAuthenticated && isAdmin && (
+            <div className="relative">
+              <button
+                className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
+                onClick={toggleDesignDropdown}
+              >
+                Crear +
+              </button>
+              {showDesignDropdown && (
+                <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg mt-2">
+                  <button
+                    className="p-2 w-full text-left hover:bg-gray-200"
+                    onClick={openImageModal}
+                  >
+                    Diseño
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+
+          <ImageUploadModal
+            isOpen={isImageModalOpen}
+            onClose={closeImageModal}
+          />
+          {isAuthenticated && ( // Mostrar el botón de usuario redondo solo si está autenticado
+            <div className="relative">
+              <button
+                className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
+                onClick={toggleDropdown}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
+              {showDropdown && (
+                <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg mt-2">
+                  <p className="p-2">{user}</p>
+                  <button
+                    onClick={logoutUser}
+                    className="p-2 w-full text-left hover:bg-gray-200"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
           )}
         </div>
         <div className="md:hidden cursor-pointer" onClick={navHandler}>
@@ -214,40 +212,19 @@ const MainNavigation = () => {
           </NavLink>
         </li>
         <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
-          <NavLink to="/products" onClick={navHandler}>
-            Productos
-          </NavLink>
-        </li>
-        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
           <NavLink to="/about" onClick={navHandler}>
-            Amigurumis Personalizados
+            Sobre Mi
           </NavLink>
         </li>
         <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
           <NavLink to="/products" onClick={navHandler}>
-            Como comprar
+            Diseños
           </NavLink>
         </li>
-        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
-          <NavLink to="/products" onClick={navHandler}>
-            Metodos de pago
-          </NavLink>
-        </li> <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
-          <NavLink to="/products" onClick={navHandler}>
-            Metodos de envio
-          </NavLink>
-        </li>
-        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
-          {isAuthenticated && (
-            <NavLink to="/checkout" onClick={navHandler}>
-              Checkout
-            </NavLink>
-          )}
-        </li>
+
+
         <div className="flex flex-col items-center m-4 space-y-4">
-          <div onClick={navHandler}>
-            <NavCartButton />
-          </div>
+
           {!isAuthenticated && (
             <NavLink
               onClick={navHandler}
@@ -257,14 +234,75 @@ const MainNavigation = () => {
               Login
             </NavLink>
           )}
-          {isAuthenticated && (
-            <button
-              onClick={logoutUser}
-              className="border-primary border-4 text-primary font-bold px-9 py-2 ml-2 rounded-full shadow-lg"
-            >
-              Logout
-            </button>
-          )}
+          <div className="flex items-center md:hidden">
+            {isAuthenticated && isAdmin && (
+              <div className="relative">
+                <button
+                  className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
+                  onTouchEnd={(e) => {
+                    e.stopPropagation();
+                    openImageModal();
+                  }}
+                >
+                  Crear +
+                </button>
+
+                {showDesignDropdown && (
+                  <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg mt-2">
+                    <button
+                      className="p-2 w-full text-left hover:bg-gray-200"
+                      onTouchEnd={openImageModal}
+                    >
+                      Diseño
+                    </button>
+                  </div>
+                )}
+              
+              </div>
+              
+            )}
+              <ImageUploadModal
+            isOpen={isImageModalOpen}
+            onClose={closeImageModal}
+          />
+            {isAuthenticated && (
+              <div className="relative">
+                <button
+                  className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
+                  onClick={toggleDropdown}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-gray-700"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+                {showDropdown && (
+                  <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg mt-2">
+                    <p className="p-2">{user}</p>
+                    <button
+                      onClick={logoutUser}
+                      className="p-2 w-full text-left hover:bg-gray-200"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
+
+
         </div>
       </ul>
     </div>

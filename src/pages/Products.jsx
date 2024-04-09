@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PageHero from '../layout/PageHero';
 import Filters from '../components/products/Filters';
 import Sort from '../components/products/Sort'
@@ -33,7 +32,7 @@ const Products = () => {
             animate="visible"
             exit="exit"
         >
-            <PageHero title="products" />
+            <PageHero title="Diseños" />
             <div className='flex w-[85vw] my-16 mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-12 gap-y-12'>
                     <div className='sticky lg:col-span-1'>
