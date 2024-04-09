@@ -55,7 +55,7 @@ const App = () => {
 
             <Route element={<HomeRedirect />}>
               <Route path="/" element={<Home />} />
-              <Route path="/react-template" element={<Home />} />
+              <Route path="/LennitaBB" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
