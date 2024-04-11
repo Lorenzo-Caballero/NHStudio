@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import conejita1 from "../../assets/conejimarron.png";
 import conejita2 from "../../assets/coneji-removebg-preview.png";
 import conejita3 from "../../assets/osito-removebg-preview (2).png";
+import portada from "../../assets/portada.jpg";
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(conejita1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Cambiar a la siguiente imagen de manera circular
       setCurrentImage((prevImage) => {
         switch (prevImage) {
           case conejita1:
@@ -34,10 +34,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500">
+    <div className="relative min-h-screen flex items-center justify-center">
       <motion.div
-        className="absolute top-0 left-0 w-full h-full"
-        style={{ backgroundImage: "url('/your-background-image.jpg')" }}
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+        style={{ backgroundImage: `url(${portada})` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
