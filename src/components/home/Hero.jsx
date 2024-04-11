@@ -42,7 +42,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {/* Decoraciones adicionales, como dibujos o formas */}
+        
       </motion.div>
       <motion.img
         key={currentImage} // Key para forzar la remontaje de la imagen en cada cambio

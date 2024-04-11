@@ -5,24 +5,24 @@ const TheServices = () => {
     return (
         <div className="bg-purple-400 px-8 py-16 lg:py-24">
             <div className="container mx-auto">
-                <h2 className="text-3xl lg:text-4xl text-white font-semibold mb-8">Cómo cuidar tu nuevo tatuaje</h2>
-                <p className="text-lg text-white mb-12">¡Hola! Aquí tienes algunos consejos útiles para que tu tatuaje luzca increíble y se mantenga en óptimas condiciones.</p>
+                <h2 className="text-3xl lg:text-4xl text-white font-semibold mb-8">Descubre nuestros servicios</h2>
+                <p className="text-lg text-white mb-12">¡Bienvenido a LennitaBB! Aquí te explicamos cómo trabajamos y qué servicios ofrecemos para que disfrutes al máximo de nuestros amigurumis personalizados.</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <ServiceCard
                         icon={<GiCompass className="text-white text-4xl" />}
-                        title="Primeros pasos"
-                        description="Después de hacerte el tatuaje, manténlo cubierto con un vendaje durante unas horas y sigue las instrucciones de tu tatuador para lavarlo y aplicar crema. ¡Es fácil!"
+                        title="Método de pago seguro"
+                        description="En LennitaBB, te ofrecemos un método de pago seguro para todas tus compras. Aceptamos todas las principales tarjetas de crédito y débito, así como PayPal y transferencias bancarias."
                     />
                     <ServiceCard
                         icon={<GiDiamondHard className="text-white text-4xl" />}
-                        title="Cuidado durante la cicatrización"
-                        description="Es crucial mantener el tatuaje limpio e hidratado durante la fase de cicatrización, evitando rascar o exponerlo al sol directamente. ¡Trata tu tatuaje como oro!"
+                        title="Envío rápido y confiable"
+                        description="Garantizamos un envío rápido y confiable para que recibas tus amigurumis personalizados en perfectas condiciones y en el menor tiempo posible. Trabajamos con los mejores servicios de mensajería para tu tranquilidad."
                     />
                     <ServiceCard
                         icon={<GiStabbedNote className="text-white text-4xl" />}
-                        title="Mantenimiento a largo plazo"
-                        description="Una vez que tu tatuaje esté completamente cicatrizado, recuerda protegerlo del sol con protector solar y mantenerlo bien hidratado con crema. ¡Así lucirá increíble durante mucho tiempo!"
+                        title="Amigurumis personalizados"
+                        description="En LennitaBB, nos especializamos en la creación de amigurumis personalizados según tus gustos y preferencias. ¡Cuéntanos tu idea y nosotros la convertiremos en un adorable muñeco de ganchillo!"
                     />
                 </div>
             </div>

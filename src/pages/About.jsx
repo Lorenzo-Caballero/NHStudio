@@ -1,9 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
 import PageHero from '../layout/PageHero';
-//import { ABOUT_IMG_URL } from '../utils/constants';
-
 
 const containerVariants = {
     hidden: {
@@ -34,10 +31,7 @@ const underlineAnimate = {
     },
 };
 
-
 const About = () => {
-
-
     return (
         <motion.main
             variants={containerVariants}
@@ -45,12 +39,12 @@ const About = () => {
             animate="visible"
             exit="exit"
         >
-            <PageHero title="Sobre mi" />
+            <PageHero title="Acerca de Lennita BB" />
             <div className='w-full py-32'>
                 <div className='w-[85vw] flex mx-auto'>
                     <div className='grid sm:grid-cols-1 md:grid-cols-2 gap-8'>
                         <div>
-                            <img alt="" />
+                            <img src="/lennita-bb-logo.png" alt="Lennita BB" className="w-full" />
                         </div>
                         <div>
                             <motion.h2 className='text-4xl lg:text-6xl font-bold capitalize tracking-wider'
@@ -58,7 +52,7 @@ const About = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: .5 }}
                             >
-                                Mi historia
+                                Nuestra Historia
                                 <svg
                                     className="svg-underline stroke-[#ffb81c] relative z-10 w-1/2"
                                     strokeLinejoin="round"
@@ -81,9 +75,9 @@ const About = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: .5, duration: .8 }}
                             >
-                            Buenas! Soy Fauno, tatuador apasionado de la costa de Mar Chiquita, Santa Clara del Mar, Argentina. Mi pasión es transformar tu inspiración en tinta, creando piezas que reflejen tu esencia.
-                            En Fauno Tattoo, cada diseño es una expresión, una marca de autenticidad en tu piel.
-                            Listo para dar vida a tus ideas, ¡hablemos de tu próximo tatuaje!
+                                ¡Bienvenidos a Lennita BB! Somos un emprendimiento artesanal ubicado en Santa Clara del Mar, Argentina. Nos especializamos en la producción de adorables muñequitos de amigurumis hechos con mucho amor y dedicación.
+                                En Lennita BB, cada creación es única, diseñada para traer alegría y diversión a tu vida. Desde simpáticos animales hasta personajes fantásticos, nuestros amigurumis son el regalo perfecto para todas las ocasiones.
+                                ¡Déjanos ser parte de tus momentos especiales con nuestros encantadores muñequitos de amigurumis!
                             </motion.p>
                         </div>
                     </div>
