@@ -36,19 +36,17 @@ const Hero = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center">
       <motion.div
-        className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: `url(${portada})` }}
+        className="absolute left-0 w-full h-full bg-cover bg-center "
+        style={{ backgroundImage: `url(${portada})`, zIndex: -1 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-      >
-        
-      </motion.div>
+      />
       <motion.img
         key={currentImage} // Key para forzar la remontaje de la imagen en cada cambio
         src={currentImage}
         alt="conejita"
-        className="w-60 md:w-72 lg:w-80 mx-auto rounded-lg"
+        className="w-60 md:w-72 lg:w-80 mx-auto rounded-lg z-10"
         initial="hidden"
         animate="visible"
         variants={fadeInOut}
@@ -58,7 +56,10 @@ const Hero = () => {
           scale: { duration: 1.5, yoyo: Infinity, ease: "easeInOut" }, // Efecto de zoom
         }}
       />
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-12">
+      <div className="absolute top-0 left-0 right-0 flex justify-center z-20">
+        {/* Aquí debes colocar tu dropdown del navbar */}
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-12 z-20">
         <Link to="/products">
           <motion.button
             className="px-4 py-2 font-bold bg-white border-4 border-purple-600 rounded-full shadow-md m-2"
