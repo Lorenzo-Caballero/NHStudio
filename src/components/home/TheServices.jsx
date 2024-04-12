@@ -1,6 +1,7 @@
 import React from "react";
 import {GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
 import { IoCardOutline } from "react-icons/io5";
+import { HiOutlineTruck } from "react-icons/hi";
 
 const TheServices = () => {
     return (
@@ -16,7 +17,7 @@ const TheServices = () => {
                         description="En LennitaBB, te ofrecemos un método de pago seguro para todas tus compras. Aceptamos todas las principales tarjetas de crédito y débito, así como MercadoPago y transferencias bancarias."
                     />
                     <ServiceCard
-                        icon={<GiDiamondHard className="text-white text-4xl" />}
+                        icon={<HiOutlineTruck className="text-white text-4xl" />}
                         title="Envío rápido y confiable"
                         description="Garantizamos un envío rápido y confiable para que recibas tus amigurumis personalizados en perfectas condiciones y en el menor tiempo posible. Trabajamos con los mejores servicios de mensajería para tu tranquilidad."
                     />

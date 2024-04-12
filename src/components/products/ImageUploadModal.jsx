@@ -16,53 +16,32 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleImageChange = async (e) => {
+  const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const imageData = await compressImage(file);
-      setValues((prevValues) => ({
-        ...prevValues,
-        image: imageData,
-      }));
+      convertImageToBase64(file);
     }
   };
 
-  const compressImage = async (file) => {
-    const maxWidth = 500; // Max width for the image
-    const maxHeight = 500; // Max height for the image
+  const convertImageToBase64 = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    return new Promise((resolve) => {
-      reader.onload = (event) => {
-        const img = new Image();
-        img.src = event.target.result;
-        img.onload = () => {
-          const canvas = document.createElement("canvas");
-          let width = img.width;
-          let height = img.height;
-
-          // Calculate new dimensions while maintaining aspect ratio
-          if (width > height) {
-            if (width > maxWidth) {
-              height *= maxWidth / width;
-              width = maxWidth;
-            }
-          } else {
-            if (height > maxHeight) {
-              width *= maxHeight / height;
-              height = maxHeight;
-            }
-          }
-
-          canvas.width = width;
-          canvas.height = height;
-
-          const ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0, width, height);
-          canvas.toBlob((blob) => resolve(blob), "image/jpeg", 0.7); // Adjust quality here (0.7 is 70%)
-        };
-      };
-    });
+    reader.onloadend = () => {
+      setValues((prevValues) => ({
+        ...prevValues,
+        image: reader.result,
+      }));
+    };
+  };
+  
+  const shortenImageUrl = async (imageUrl) => {
+    try {
+      const response = await axios.get(`https://api.tinyurl.com/dev/api-create.php?url=${imageUrl}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error al acortar la URL:', error);
+      return imageUrl; // Si falla, devolvemos la URL original
+    }
   };
 
   const handleUpload = async () => {
@@ -72,29 +51,26 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
         return;
       }
 
-      const formData = new FormData();
-      formData.append("name", values.name);
-      formData.append("price", values.price);
-      formData.append("image", values.image);
+      const shortenedImage = await shortenImageUrl(values.image); // Acortar la URL de la imagen
 
       const response = await axios.post(
-        "https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/designs",
-        formData,
+        "https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/amigurumis",
+        JSON.stringify({ ...values, image: shortenedImage }), // Enviar la URL acortada
         {
           headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
           },
         }
       );
-console.log("hola",response)
+
       if (response.status === 200) {
         console.log("Diseño creado exitosamente");
         onClose();
       } else {
         console.error("Error al subir el diseño:", response.statusText);
       }
-    } catch (response) {
-      console.error("Error al subir el amigurumi:", response);
+    } catch (error) {
+      console.error("Error al subir la imagen:", error);
     }
   };
 
