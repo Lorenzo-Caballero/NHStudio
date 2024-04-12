@@ -1,5 +1,6 @@
 import React from "react";
-import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
+import {GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
+import { IoCardOutline } from "react-icons/io5";
 
 const TheServices = () => {
     return (
@@ -10,9 +11,9 @@ const TheServices = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <ServiceCard
-                        icon={<GiCompass className="text-white text-4xl" />}
+                        icon={<IoCardOutline className="text-white text-4xl" />}
                         title="Método de pago seguro"
-                        description="En LennitaBB, te ofrecemos un método de pago seguro para todas tus compras. Aceptamos todas las principales tarjetas de crédito y débito, así como PayPal y transferencias bancarias."
+                        description="En LennitaBB, te ofrecemos un método de pago seguro para todas tus compras. Aceptamos todas las principales tarjetas de crédito y débito, así como MercadoPago y transferencias bancarias."
                     />
                     <ServiceCard
                         icon={<GiDiamondHard className="text-white text-4xl" />}

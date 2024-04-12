@@ -59,11 +59,14 @@ const Hero = () => {
       <div className="absolute top-0 left-0 right-0 flex justify-center z-20">
         {/* Aquí debes colocar tu dropdown del navbar */}
       </div>
+
       <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-12 z-20">
         <Link to="/products">
           <motion.button
-            className="px-4 py-2 font-bold bg-white border-4 border-purple-600 rounded-full shadow-md m-2"
-            whileHover={{ scale: 1.1 }}
+            className="px-4 py-2 font-serif font-bold rounded-full shadow-md m-2 bg-purple-600 bg-opacity-30 text-white"
+            whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
+            transition={{ duration: 0.3 }}
+            style={{ textShadow: "1px 1px 2px rgba(255,255,255,0.4)" }}
           >
             Ver diseños
           </motion.button>

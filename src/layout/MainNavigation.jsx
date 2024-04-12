@@ -5,9 +5,10 @@ import { XIcon } from "@heroicons/react/solid";
 import { motion } from "framer-motion";
 import conejita from '../assets/coneji-removebg-preview.png';
 import HambergurMenu from "../assets/HambergurMenu.svg";
-import NavCartButton from "../components/cart/NavCartButton";
+import { BiUser } from "react-icons/bi";
 import { useAuth } from "../components/context/AuthContext";
 import ImageUploadModal from "../components/products/ImageUploadModal";
+import { IoAddCircleOutline } from 'react-icons/io5';
 const MainNavigation = () => {
   const [showNav, setShowNav] = useState(false);
   const { isAuthenticated, logout, user, isAdmin } = useAuth(); // Obtenemos los valores del contexto
@@ -134,8 +135,9 @@ const MainNavigation = () => {
               <button
                 className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
                 onClick={toggleDesignDropdown}
+                style={{ fontSize: "1.9rem", width: "2.5rem", height: "2.5rem" }}
               >
-                Crear +
+                <IoAddCircleOutline />
               </button>
               {showDesignDropdown && (
                 <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg mt-2">
@@ -160,21 +162,9 @@ const MainNavigation = () => {
               <button
                 className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
                 onClick={toggleDropdown}
+                style={{fontSize:"1.7rem"}}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-gray-700"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                <BiUser />
               </button>
               {showDropdown && (
                 <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg mt-2">
@@ -243,8 +233,9 @@ const MainNavigation = () => {
                     e.stopPropagation();
                     openImageModal();
                   }}
+                  style={{fontSize:"1.7rem"}}
                 >
-                  Crear +
+                  <IoAddCircleOutline />
                 </button>
 
                 {showDesignDropdown && (
@@ -257,34 +248,22 @@ const MainNavigation = () => {
                     </button>
                   </div>
                 )}
-              
+
               </div>
-              
+
             )}
-              <ImageUploadModal
-            isOpen={isImageModalOpen}
-            onClose={closeImageModal}
-          />
+            <ImageUploadModal
+              isOpen={isImageModalOpen}
+              onClose={closeImageModal}
+            />
             {isAuthenticated && (
               <div className="relative">
                 <button
                   className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
                   onClick={toggleDropdown}
+                  style={{ fontSize: "1.7rem" }} // Ajusta el tamaño del icono aquí
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-gray-700"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
+                  <BiUser />
                 </button>
                 {showDropdown && (
                   <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg mt-2">
@@ -300,9 +279,6 @@ const MainNavigation = () => {
               </div>
             )}
           </div>
-
-
-
         </div>
       </ul>
     </div>
