@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import shortid from "shortid";
+import { Resizer } from "react-image-file-resizer"; // Importa Resizer desde react-image-file-resizer
 
 const ImageUploadModal = ({ isOpen, onClose }) => {
   const [values, setValues] = useState({
@@ -19,29 +21,29 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      convertImageToBase64(file);
+      resizeImage(file); // Cambia a la función resizeImage
     }
   };
 
-  const convertImageToBase64 = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setValues((prevValues) => ({
-        ...prevValues,
-        image: reader.result,
-      }));
-    };
-  };
-  
-  const shortenImageUrl = async (imageUrl) => {
-    try {
-      const response = await axios.get(`https://api.tinyurl.com/dev/api-create.php?url=${imageUrl}`);
-      return response.data;
-    } catch (error) {
-      console.error('Error al acortar la URL:', error);
-      return imageUrl; // Si falla, devolvemos la URL original
-    }
+  const resizeImage = (file) => {
+    Resizer.imageFileResizer(
+      file,
+      300, // Nuevo ancho de la imagen
+      200, // Nuevo alto de la imagen
+      "JPEG", // Formato de salida (JPEG, PNG, WEBP)
+      100, // Calidad de salida (0-100)
+      0, // Grados de rotación (0-360)
+      (uri) => {
+        // Función de callback con la imagen redimensionada como base64
+        setValues((prevValues) => ({
+          ...prevValues,
+          image: uri,
+        }));
+      },
+      "base64", // Tipo de salida (base64, blob, file)
+      70, // Nuevo tamaño máximo del archivo en kilobytes
+      200 // Nuevo tamaño máximo de la imagen en píxeles
+    );
   };
 
   const handleUpload = async () => {
@@ -51,14 +53,19 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
         return;
       }
 
-      const shortenedImage = await shortenImageUrl(values.image); // Acortar la URL de la imagen
+      const imageName = shortid.generate(); // Genera un identificador único para la imagen
+
+      const formData = new FormData();
+      formData.append("name", values.name);
+      formData.append("price", values.price);
+      formData.append("image", values.image, `${imageName}.jpg`); // Adjunta el nombre único a la imagen
 
       const response = await axios.post(
         "https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/amigurumis",
-        JSON.stringify({ ...values, image: shortenedImage }), // Enviar la URL acortada
+        formData,
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         }
       );
