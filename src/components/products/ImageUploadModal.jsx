@@ -33,7 +33,16 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
       }));
     };
   };
-
+  
+  const shortenImageUrl = async (imageUrl) => {
+    try {
+      const response = await axios.get(`https://api.tinyurl.com/dev/api-create.php?url=${imageUrl}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error al acortar la URL:', error);
+      return imageUrl; // Si falla, devolvemos la URL original
+    }
+  };
 
   const handleUpload = async () => {
     try {
@@ -42,10 +51,11 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
         return;
       }
 
+      const shortenedImage = await shortenImageUrl(values.image); // Acortar la URL de la imagen
 
       const response = await axios.post(
         "https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/amigurumis",
-        JSON.stringify({ ...values, image: values.image }), // Enviar la URL acortada
+        JSON.stringify({ ...values, image: shortenedImage }), // Enviar la URL acortada
         {
           headers: {
             "Content-Type": "application/json",
