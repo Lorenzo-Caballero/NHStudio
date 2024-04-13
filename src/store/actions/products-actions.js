@@ -32,7 +32,7 @@ export const getProductDetails = (id) => {
     return async dispatch => {
         dispatch(uiActions.pDetailLoading());
         const fetchData = async () => {
-            const response = await axios.get(`https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/designs/${id}`);
+            const response = await axios.get(`https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/amigurumis/${id}`);
 
             const data = await response.data;
             return data;
@@ -56,7 +56,7 @@ export const addProduct = ({ product, token }) => {
         await api.get('/sanctum/csrf-cookie');
         
         const postData = async () => {
-            const response = await axios.post('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/designs', product, {
+            const response = await axios.post('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/amigurumis', product, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         Authorization: 'Bearer ' + token,
