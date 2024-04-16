@@ -88,7 +88,7 @@ const ChatButton = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6"> {/* Ajuste la posición del botón aquí */}
+    <div className="fixed bottom-6 right-6" style={{ zIndex: 9999 }}> {/* Ajuste la posición del botón aquí */}
       <button onClick={handleChatToggle} className={`flex items-center justify-center bg-purple-300 rounded-full w-12 h-12 ${chatAbierto ? 'hidden' : ''}`}>
         <FiMessageSquare className="text-white text-2xl" />
       </button>
