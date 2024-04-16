@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FiMessageSquare, FiX } from 'react-icons/fi'; // Importa el icono de cierre
 import { motion } from "framer-motion";
 import { CohereClient } from "cohere-ai";
@@ -10,6 +10,7 @@ const ChatButton = () => {
   const [nuevoMensaje, setNuevoMensaje] = useState('');
   const [escribiendo, setEscribiendo] = useState(false);
   const [cohereToken, setCohereToken] = useState(null); // Estado para almacenar el token
+  const mensajesRef = useRef(null); // Referencia al contenedor de mensajes
 
   useEffect(() => {
     const fetchCohereToken = async () => {
@@ -24,6 +25,17 @@ const ChatButton = () => {
 
     fetchCohereToken(); // Llama a la función para obtener el token
   }, []); // El segundo argumento [] garantiza que useEffect solo se ejecute una vez
+
+  // Función para hacer scroll hacia abajo en el contenedor de mensajes
+  const scrollToBottom = () => {
+    if (mensajesRef.current) {
+      mensajesRef.current.scrollTop = mensajesRef.current.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom(); // Hace scroll hacia abajo al cargar o actualizar mensajes
+  }, [mensajes]); // Se ejecuta cada vez que se actualiza la lista de mensajes
 
   const obtenerRespuestaCohere = async (userMessage) => {
     try {
@@ -97,7 +109,7 @@ const ChatButton = () => {
           <div className="flex justify-between mb-2">
             <button onClick={handleCloseChat}><FiX className="text-gray-600" /></button> {/* Botón de cierre */}
           </div>
-          <div className="h-60 overflow-y-auto mb-2">
+          <div ref={mensajesRef} className="h-60 overflow-y-auto mb-2">
             {mensajes.map((mensaje, index) => (
               <div key={index} className={`mb-2 ${mensaje.origen === 'usuario' ? 'text-right' : 'text-left'} px-4 py-2 rounded-lg bg-purple-200 text-gray-800`}>
                 <strong>{mensaje.origen === 'usuario' ? 'Tú' : 'Asistente LennitaBB'}</strong>: {mensaje.texto}
