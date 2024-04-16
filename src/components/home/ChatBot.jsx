@@ -80,9 +80,9 @@ const ChatButton = () => {
       
       const respuesta = await cohere.generate({
         language: "es", // Configura el idioma español
-        model: "command",
+        model: "command-r-plus",
         prompt: prompt,
-        maxTokens: 90,
+        maxTokens: 120,
       });
   
       setEscribiendo(false);
