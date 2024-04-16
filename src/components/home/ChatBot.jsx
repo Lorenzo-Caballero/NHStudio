@@ -10,21 +10,24 @@ const ChatButton = () => {
   const [nuevoMensaje, setNuevoMensaje] = useState('');
   const [escribiendo, setEscribiendo] = useState(false);
   const [cohereToken, setCohereToken] = useState(null); // Estado para almacenar el token
+  const [enviandoMensaje, setEnviandoMensaje] = useState(false); // Estado para controlar si se está enviando un mensaje
   const mensajesRef = useRef(null); // Referencia al contenedor de mensajes
 
   useEffect(() => {
-    const fetchCohereToken = async () => {
-      try {
-        const response = await axios.get('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/ai');
-        const token = response.data;
-        setCohereToken(token); // Almacena el token en el estado
-      } catch (error) {
-        console.error('Error al obtener el token de la API:', error);
-      }
-    };
+    obtenerTokenCohere(); // Obtener el token de Cohere al montar el componente
+  }, []);
 
-    fetchCohereToken(); // Llama a la función para obtener el token
-  }, []); // El segundo argumento [] garantiza que useEffect solo se ejecute una vez
+  // Función para obtener el token de Cohere
+  const obtenerTokenCohere = async () => {
+    try {
+      const response = await axios.get('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/ai');
+      const token = response.data;
+      console.log(token);
+      setCohereToken(token); // Almacena el token en el estado
+    } catch (error) {
+      console.error('Error al obtener el token de la API:', error);
+    }
+  };
 
   // Función para hacer scroll hacia abajo en el contenedor de mensajes
   const scrollToBottom = () => {
@@ -37,6 +40,27 @@ const ChatButton = () => {
     scrollToBottom(); // Hace scroll hacia abajo al cargar o actualizar mensajes
   }, [mensajes]); // Se ejecuta cada vez que se actualiza la lista de mensajes
 
+  // Función para enviar un mensaje y obtener la respuesta de Cohere
+  const handleEnviarMensaje = async () => {
+    if (!nuevoMensaje.trim() || enviandoMensaje) return;
+    setEnviandoMensaje(true); // Deshabilita el botón de enviar mensaje
+    setMensajes(prevMensajes => [
+      ...prevMensajes,
+      { texto: nuevoMensaje, origen: 'usuario' }
+    ]);
+    setNuevoMensaje('');
+    try {
+      const respuestaCohere = await obtenerRespuestaCohere(nuevoMensaje);
+      setMensajes(prevMensajes => [
+        ...prevMensajes,
+        { texto: respuestaCohere, origen: 'asistente' }
+      ]);
+    } finally {
+      setEnviandoMensaje(false); // Habilita el botón de enviar mensaje
+    }
+  };
+
+  // Función para obtener la respuesta de Cohere
   const obtenerRespuestaCohere = async (userMessage) => {
     try {
       if (!cohereToken) {
@@ -51,12 +75,12 @@ const ChatButton = () => {
   
       setEscribiendo(true);
       // Agregar el contexto antes del userMessage
-      const contexto = "sos un asistente virtual de Lennita BB! Somos un emprendimiento artesanal ubicado en Santa Clara del Mar, Argentina. Nos especializamos en la producción de adorables muñequitos de amigurumis hechos con mucho amor y dedicación. En Lennita BB, cada creación es única, diseñada para traer alegría y diversión a tu vida. Desde simpáticos animales hasta personajes fantásticos, nuestros amigurumis son el regalo perfecto para todas las ocasiones. ¡Déjanos ser parte de tus momentos especiales con nuestros encantadores. Cada vez que el usuario te envie un mensaje debes responder solo con la informacion que te pregunta , no ofrezcas descuentos ni promociones, y solo basandote en la informacion de lennitaBB , no extiendas mucho las respuestas se breve ,y no inventes datos que no te proporciono ,ademas , si la pregunta del usuario se va de contexto del emprendimiento , responde con un : no se de esos temas!, si te preguntan sobre su numero de telefono coloca este:+54 9 341 216 8460 ademas , no repitas toda la informacion de lennitaBB cada vez que te manda un mensaje ,usa el acento argentino,la pregunta del usuario es la siguiente:";
+      const contexto = "sos un asistente virtual de Lennita BB! Somos un emprendimiento artesanal ubicado en Santa Clara del Mar, Argentina. Nos especializamos en la producción de adorables muñequitos de amigurumis hechos con mucho amor y dedicación. En Lennita BB, cada creación es única, diseñada para traer alegría y diversión a tu vida. Desde simpáticos animales hasta personajes fantásticos  y figuras que vos quieras!, nuestros amigurumis son el regalo perfecto para todas las ocasiones. ¡Déjanos ser parte de tus momentos especiales con nuestros encantadores. Cada vez que el usuario te envie un mensaje debes responder solo con la informacion que te pregunta , los precios varian segun el diseño , y parten de un valor minimo de 20 mil aunque depende mucho la complejidad del diseño, no ofrezcas descuentos ni promociones, y solo basandote en la informacion de lennitaBB , no extiendas mucho las respuestas se breve ,y no inventes datos que no te proporciono ,ademas , si la pregunta del usuario se va de contexto del emprendimiento , responde con un : no se de esos temas!, si te preguntan sobre su numero de telefono coloca este:+54 9 341 216 8460 ademas , no repitas toda la informacion de lennitaBB cada vez que te manda un mensaje ,usa el acento argentino,la pregunta del usuario es la siguiente:";
       const prompt = contexto + userMessage;
       
       const respuesta = await cohere.generate({
         language: "es", // Configura el idioma español
-        model: "command-r-plus",
+        model: "command",
         prompt: prompt,
         maxTokens: 90,
       });
@@ -71,30 +95,19 @@ const ChatButton = () => {
     }
   };
   
-  const handleEnviarMensaje = async () => {
-    if (!nuevoMensaje.trim()) return;
-    setMensajes(prevMensajes => [
-      ...prevMensajes,
-      { texto: nuevoMensaje, origen: 'usuario' }
-    ]);
-    setNuevoMensaje('');
-    const respuestaCohere = await obtenerRespuestaCohere(nuevoMensaje);
-    setMensajes(prevMensajes => [
-      ...prevMensajes,
-      { texto: respuestaCohere, origen: 'asistente' }
-    ]);
-  };
-
+  // Función para manejar el evento de presionar la tecla Enter
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleEnviarMensaje();
     }
   };
 
+  // Función para manejar el evento de alternar la visibilidad del chat
   const handleChatToggle = () => {
     setChatAbierto(!chatAbierto);
   };
 
+  // Función para manejar el evento de cerrar el chat
   const handleCloseChat = () => {
     setChatAbierto(false);
   };
@@ -134,8 +147,9 @@ const ChatButton = () => {
               onKeyPress={handleKeyPress}
               placeholder="Escribí algo acá"
               className="flex-1 border rounded-full px-4 py-2 outline-none"
+              disabled={enviandoMensaje} // Deshabilita el input mientras se está enviando un mensaje
             />
-            <button onClick={handleEnviarMensaje} className="ml-2 bg-purple-300 rounded-full px-4 py-2 text-white font-semibold">Enviar</button>
+            <button onClick={handleEnviarMensaje} disabled={enviandoMensaje} className="ml-2 bg-purple-300 rounded-full px-4 py-2 text-white font-semibold">Enviar</button>
           </div>
         </div>
       )}
