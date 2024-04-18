@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-//import ProductImages from '../components/productDetail/ProductImages';
-//import Stars from '../components/productDetail/Stars';
-import PageHero from '../layout/PageHero';
-import AddToCart from '../components/productDetail/AddToCart';
-import { getProductDetails } from '../store/actions/products-actions';
-//import { formatPrice } from '../utils/helpers';
+import axios from 'axios';
 import TheSpinner from '../layout/TheSpinner';
+import { getProductDetails } from "../store/actions/products-actions.js";
+import PageHero from "../layout/PageHero.jsx";
 
 const containerVariants = {
     hidden: {
@@ -29,6 +26,8 @@ const ProductDetail = () => {
     const dispatch = useDispatch();
     const loading = useSelector((state) => state.ui.productDetailLoading);
 
+    const [precio, setPrecio] = useState(0);
+
     useEffect(() => {
         dispatch(getProductDetails(productId));
     }, [dispatch, productId]);
@@ -42,6 +41,50 @@ const ProductDetail = () => {
         sku,
         image,
     } = product;
+
+    useEffect(() => {
+        // Setear el precio para el pago
+        setPrecio(price);
+    }, [price]);
+
+    // Función para procesar el pago por MercadoPago
+    const handlePayment = async () => {
+        try {
+            const response = await axios.post('https://api.mercadopago.com/v1/advanced_payments', {
+                binary_mode: false,
+                capture: false,
+                payer: {
+                    token: 'abcdef1e23f4567d8e9123eb6591ff68df74c57930551ed980239f4538a7e530',
+                    type_token: 'wallet-tokens'
+                },
+                wallet_payment: {
+                    transaction_amount: precio,
+                    description: 'Payment for the purchase of furniture',
+                    external_reference: 'Payment_seller_123',
+                    discount: {
+                        amount: 10,
+                        description: 'DESC20',
+                        code: null,
+                        detail: {
+                            cap: 1000000,
+                            type: 'percentage',
+                            value: 10
+                        }
+                    }
+                }
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer TU_ACCESS_TOKEN' // Reemplaza con tu token de acceso de MercadoPago
+                }
+            });
+            console.log(response.data);
+            // Aquí puedes manejar la respuesta del pago
+        } catch (error) {
+            console.error('Error al procesar el pago:', error);
+            // Aquí puedes manejar los errores del pago
+        }
+    };
 
     return (
         <motion.div className='mb-48'
@@ -74,9 +117,15 @@ const ProductDetail = () => {
                                     <p className='text-lg font-semibold tracking-wider text-gray-600'>Disponible :</p>
                                     <p>En stock</p>
                                 </div>
-                                </div>
+                            </div>
                             <hr className='my-6' />
-                            <AddToCart product={product} />
+                            {/* Botón de MercadoPago */}
+                            <button
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onClick={handlePayment}
+                            >
+                                Pagar con MercadoPago
+                            </button>
                         </div>
                     </div>
                 }
