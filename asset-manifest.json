@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/LennitaBB/static/css/main.1f2e0140.css",
-    "main.js": "/LennitaBB/static/js/main.ab5ae737.js",
+    "main.css": "/LennitaBB/static/css/main.608d66e8.css",
+    "main.js": "/LennitaBB/static/js/main.654f3cbf.js",
     "static/media/osito-removebg-preview (2).png": "/LennitaBB/static/media/osito-removebg-preview (2).9d5794ba12ba66029dc8.png",
     "static/media/coneji-removebg-preview.png": "/LennitaBB/static/media/coneji-removebg-preview.e434da83bb0cc48862ea.png",
     "static/media/portada.jpg": "/LennitaBB/static/media/portada.89e1b203641e8c5b6a48.jpg",
     "static/media/conejimarron.png": "/LennitaBB/static/media/conejimarron.70aaa689a2f1940829ed.png",
     "index.html": "/LennitaBB/index.html",
     "static/media/HambergurMenu.svg": "/LennitaBB/static/media/HambergurMenu.9955f00c01a0988ffe2fb16386e78554.svg",
-    "main.1f2e0140.css.map": "/LennitaBB/static/css/main.1f2e0140.css.map",
-    "main.ab5ae737.js.map": "/LennitaBB/static/js/main.ab5ae737.js.map"
+    "main.608d66e8.css.map": "/LennitaBB/static/css/main.608d66e8.css.map",
+    "main.654f3cbf.js.map": "/LennitaBB/static/js/main.654f3cbf.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f2e0140.css",
-    "static/js/main.ab5ae737.js"
+    "static/css/main.608d66e8.css",
+    "static/js/main.654f3cbf.js"
   ]
 }
