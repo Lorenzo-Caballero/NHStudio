@@ -74,13 +74,21 @@ const ProductDetail = () => {
     
             // Verificar si la respuesta contiene la propiedad redirectUrl
             if (data.redirectUrl) {
-                // Abrir una nueva pestaña con la URL proporcionada
-                window.open(data.redirectUrl, '_blank');
+                // Verificar si es un dispositivo móvil
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                if (isMobile) {
+                    // Redireccionar al usuario a la URL directamente si está en un dispositivo móvil
+                    window.location.href = data.redirectUrl;
+                } else {
+                    // Abrir una nueva pestaña con la URL proporcionada si está en una computadora
+                    window.open(data.redirectUrl, '_blank');
+                }
             }
         } catch (error) {
             console.error('Error al realizar la compra:', error);
         }
     };
+    
     
     return (
         <motion.div className='mb-48'
