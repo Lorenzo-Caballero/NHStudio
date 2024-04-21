@@ -48,6 +48,7 @@ const Login = () => {
         localStorage.setItem('token', data.token);
         localStorage.setItem('user',data.email); 
         localStorage.setItem('admin',data.role); 
+        localStorage.setItem('id',data.userId); 
         localStorage.setItem("isAuthenticated", data.email ? true : false)
         console.log("data",data);
         login(data.email,data.role); // Utilizamos la función de login del contexto
