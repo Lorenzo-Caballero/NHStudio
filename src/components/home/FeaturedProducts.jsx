@@ -29,13 +29,14 @@ const FeaturedProducts = () => {
                         </div>
                         <footer className='flex mt-4 justify-between items-center'>
                             <h4 className='mb-0 font-normal'>{product.name}</h4>
-                            <p className='mb-0 font-semibold italic text-purple-500 tracking-widest'>${product.price}</p>
+                            <p className='mb-0 font-semibold italic text-purple-500 tracking-widest'>{product && product.price ? `$${Number(product.price).toLocaleString('es-AR')}` : ''}
+                            </p>
                         </footer>
                     </div>
                 ))}
             </div>
             <Link className='inline-block mx-auto uppercase text-center px-6 py-3 mt-4 bg-purple-500 text-white font-semibold shadow-lg rounded hover:bg-primary transition-all duration-300' to='/products'>
-                    todos los diseños
+                todos los diseños
             </Link>
         </div>
     );

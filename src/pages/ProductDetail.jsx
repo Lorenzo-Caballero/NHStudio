@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../layout/PageHero';
-import AddToCart from '../components/productDetail/AddToCart';
 import { getProductDetails } from '../store/actions/products-actions';
 import TheSpinner from '../layout/TheSpinner';
+import Modal from './ModalLogin.jsx';
 
 const containerVariants = {
     hidden: {
@@ -25,6 +25,7 @@ const ProductDetail = () => {
     const { productId } = useParams();
     const dispatch = useDispatch();
     const loading = useSelector((state) => state.ui.productDetailLoading);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         dispatch(getProductDetails(productId));
@@ -46,6 +47,12 @@ const ProductDetail = () => {
             const userId = JSON.parse(localStorage.getItem('id'));
             if (!user) {
                 console.error('No se pudo encontrar el correo electrónico del usuario en el localStorage');
+                setShowModal(true); // Mostrar el modal si el usuario no está logueado
+                return;
+            }
+    
+            if (!userId) {
+                setShowModal(true); // Mostrar el modal si el userId no está disponible
                 return;
             }
     
@@ -89,7 +96,6 @@ const ProductDetail = () => {
         }
     };
     
-    
     return (
         <motion.div className='mb-48'
             variants={containerVariants}
@@ -114,7 +120,13 @@ const ProductDetail = () => {
 
                         <div className='w-1/2'>
                             <h2 className='font-bold text-5xl tracking-wide mb-5'>{name}</h2>
-                            <h4 className='text-xl font-extrabold text-purple-500 tracking-widest italic my-4'>${price}</h4>
+                            <h4 className='text-xl font-extrabold text-purple-500 tracking-widest italic my-4'>
+    {product && product.price ? `$${Number(product.price).toLocaleString('es-AR')}` : ''}
+</h4>
+
+
+
+
                             <p className='max-w-3xl tracking-wider leading-8 text-gray-500 mb-6'>{description}</p>
                             <div className='flex flex-col w-full sm:w-3/4 lg:w-1/2 space-y-5'>
                                 <div className='flex justify-between'>
@@ -130,6 +142,7 @@ const ProductDetail = () => {
                     </div>
                 }
             </div>
+            {showModal && <Modal message="Usted no está logueado! Ingrese sesión o regístrese!" closeModal={() => setShowModal(false)} />}
         </motion.div>
     );
 };
