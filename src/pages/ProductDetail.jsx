@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import PageHero from '../layout/PageHero';
 import { getProductDetails } from '../store/actions/products-actions';
 import TheSpinner from '../layout/TheSpinner';
-import Modal from './ModalLogin.jsx';
+//import Modal from './ModalLogin.jsx';
 
 const containerVariants = {
     hidden: {
@@ -43,23 +43,23 @@ const ProductDetail = () => {
 
     const handleBuyClick = async () => {
         try {
-            const user = JSON.parse(localStorage.getItem('user'));
-            const userId = JSON.parse(localStorage.getItem('id'));
-            if (!user) {
-                console.error('No se pudo encontrar el correo electrónico del usuario en el localStorage');
-                setShowModal(true); // Mostrar el modal si el usuario no está logueado
-                return;
-            }
-    
-            if (!userId) {
-                setShowModal(true); // Mostrar el modal si el userId no está disponible
-                return;
-            }
-    
+            //const user = JSON.parse(localStorage.getItem('user'));
+         //   const userId = JSON.parse(localStorage.getItem('id'));
+        //    if (!user) {
+            //    console.error('No se pudo encontrar el correo electrónico del usuario en el localStorage');
+          //      setShowModal(true); // Mostrar el modal si el usuario no está logueado
+              //  return;
+           // }
+
+          //  if (!userId) {
+            //    setShowModal(true); // Mostrar el modal si el userId no está disponible
+              //  return;
+            //}
+
             // Convertir el precio a un número
             const numericPrice = parseFloat(price);
-    
-            const response = await fetch(`https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/users/${userId}/transactions/process`, {
+
+            const response = await fetch(`https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/users/transactions/process`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -70,15 +70,15 @@ const ProductDetail = () => {
                         price: numericPrice, // Usar el precio numérico
                         quantity: 1
                     }],
-                    payer: {
-                        email: user
-                    }
+                   // payer: {
+                     //   email: user
+                   // }
                 })
             });
-    
+
             const data = await response.json();
-            console.log(data); // Aquí puedes manejar la respuesta de la API
-    
+           // console.log(data); // Aquí puedes manejar la respuesta de la API
+
             // Verificar si la respuesta contiene la propiedad redirectUrl
             if (data.redirectUrl) {
                 // Verificar si es un dispositivo móvil
@@ -95,7 +95,7 @@ const ProductDetail = () => {
             console.error('Error al realizar la compra:', error);
         }
     };
-    
+
     return (
         <motion.div className='mb-48'
             variants={containerVariants}
@@ -121,8 +121,8 @@ const ProductDetail = () => {
                         <div className='w-1/2'>
                             <h2 className='font-bold text-5xl tracking-wide mb-5'>{name}</h2>
                             <h4 className='text-xl font-extrabold text-purple-500 tracking-widest italic my-4'>
-    {product && product.price ? `$${Number(product.price).toLocaleString('es-AR')}` : ''}
-</h4>
+                                {product && product.price ? `$${Number(product.price).toLocaleString('es-AR')}` : ''}
+                            </h4>
 
 
 
@@ -142,7 +142,7 @@ const ProductDetail = () => {
                     </div>
                 }
             </div>
-            {showModal && <Modal message="Usted no está logueado! Ingrese sesión o regístrese!" closeModal={() => setShowModal(false)} />}
+            {/*showModal && <Modal message="Usted no está logueado! Ingrese sesión o regístrese!" closeModal={() => setShowModal(false)} />*/}
         </motion.div>
     );
 };
