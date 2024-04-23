@@ -110,14 +110,14 @@ const ProductDetail = () => {
                 </Link>
                 {loading ? <TheSpinner /> :
                     <div className='flex'>
-                    <div className='w-1/2 pr-8'>
+   <div className='w-1/2 pr-8'>
     <img
         src={image}
         alt=""
-        className="w-full rounded-lg"
-        style={{ maxWidth: '200px' }} // Ajustar el tamaño máximo de la imagen en vista de computadoras
+        className="w-full rounded-lg md:max-w-[200px] lg:max-w-[200px]"
     />
 </div>
+
 
 
 
