@@ -50,7 +50,7 @@ const Filters = ({ filters }) => {
           <input
             type="text"
             name="search"
-            value={filters.text}
+            value={filters.name}
             placeholder="buscar"
             onChange={updateFilters}
             className="form-input rounded-lg bg-gray-200 border-0 pr-0"
