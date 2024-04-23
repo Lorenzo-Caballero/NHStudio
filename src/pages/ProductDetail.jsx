@@ -44,16 +44,16 @@ const ProductDetail = () => {
     const handleBuyClick = async () => {
         try {
             //const user = JSON.parse(localStorage.getItem('user'));
-         //   const userId = JSON.parse(localStorage.getItem('id'));
-        //    if (!user) {
+            //   const userId = JSON.parse(localStorage.getItem('id'));
+            //    if (!user) {
             //    console.error('No se pudo encontrar el correo electrónico del usuario en el localStorage');
-          //      setShowModal(true); // Mostrar el modal si el usuario no está logueado
-              //  return;
-           // }
+            //      setShowModal(true); // Mostrar el modal si el usuario no está logueado
+            //  return;
+            // }
 
-          //  if (!userId) {
+            //  if (!userId) {
             //    setShowModal(true); // Mostrar el modal si el userId no está disponible
-              //  return;
+            //  return;
             //}
 
             // Convertir el precio a un número
@@ -70,14 +70,14 @@ const ProductDetail = () => {
                         price: numericPrice, // Usar el precio numérico
                         quantity: 1
                     }],
-                   // payer: {
-                     //   email: user
-                   // }
+                    // payer: {
+                    //   email: user
+                    // }
                 })
             });
 
             const data = await response.json();
-           // console.log(data); // Aquí puedes manejar la respuesta de la API
+            // console.log(data); // Aquí puedes manejar la respuesta de la API
 
             // Verificar si la respuesta contiene la propiedad redirectUrl
             if (data.redirectUrl) {
@@ -110,13 +110,16 @@ const ProductDetail = () => {
                 </Link>
                 {loading ? <TheSpinner /> :
                     <div className='flex'>
-                        <div className='w-1/2 pr-8'>
-                            <img
-                                src={image}
-                                alt=""
-                                className="w-full rounded-lg md:max-w-md lg:max-w-lg"
-                            />
-                        </div>
+                    <div className='w-1/2 pr-8'>
+    <img
+        src={image}
+        alt=""
+        className="w-full rounded-lg"
+        style={{ maxWidth: '200px' }} // Ajustar el tamaño máximo de la imagen en vista de computadoras
+    />
+</div>
+
+
 
                         <div className='w-1/2'>
                             <h2 className='font-bold text-5xl tracking-wide mb-5'>{name}</h2>
