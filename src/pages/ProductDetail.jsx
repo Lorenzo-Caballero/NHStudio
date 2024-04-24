@@ -25,7 +25,7 @@ const ProductDetail = () => {
     const { productId } = useParams();
     const dispatch = useDispatch();
     const loading = useSelector((state) => state.ui.productDetailLoading);
-    const [showModal, setShowModal] = useState(false);
+    //const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         dispatch(getProductDetails(productId));
@@ -36,8 +36,8 @@ const ProductDetail = () => {
         name,
         description,
         price,
-        brand,
-        sku,
+      //  brand,
+       // sku,
         image,
     } = product;
 
@@ -110,13 +110,13 @@ const ProductDetail = () => {
                 </Link>
                 {loading ? <TheSpinner /> :
                     <div className='flex'>
-   <div className='w-1/2 pr-8'>
-    <img
-        src={image}
-        alt=""
-        className="w-full rounded-lg md:max-w-[200px] lg:max-w-[200px]"
-    />
-</div>
+                        <div className='w-1/2 pr-8'>
+                            <img
+                                src={image}
+                                alt=""
+                                className="w-full rounded-lg md:max-w-[200px] lg:max-w-[200px]"
+                            />
+                        </div>
 
 
 
@@ -126,8 +126,6 @@ const ProductDetail = () => {
                             <h4 className='text-xl font-extrabold text-purple-500 tracking-widest italic my-4'>
                                 {product && product.price ? `$${Number(product.price).toLocaleString('es-AR')}` : ''}
                             </h4>
-
-
 
 
                             <p className='max-w-3xl tracking-wider leading-8 text-gray-500 mb-6'>{description}</p>

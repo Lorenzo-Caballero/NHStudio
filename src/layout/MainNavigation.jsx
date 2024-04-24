@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { XIcon } from "@heroicons/react/solid";
 import { motion } from "framer-motion";
-import conejita from '../assets/coneji-removebg-preview.png';
+import conejita from '../assets/LennitaBBlogo1.png';
 import HambergurMenu from "../assets/HambergurMenu.svg";
 import { BiUser } from "react-icons/bi";
 import { useAuth } from "../components/context/AuthContext";
@@ -57,7 +57,7 @@ const MainNavigation = () => {
   };
 
   return (
-    <div className="w-full h-[80px]">
+    <div className="w-full h-[80px] bg-F1D8F4 text-9F5D23">
       <div className="flex  justify-between items-center w-full h-full px-8 sm:mb-6">
         <div className="flex">
           <div className="flex items-center">
@@ -67,11 +67,10 @@ const MainNavigation = () => {
               dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
               dragElastic={0.7}
             >
-              {/* <NavLink to='/'><img src={Logo} alt="" /></NavLink> */}
               <NavLink to="/">
                 <motion.img
                   src={conejita}
-                  alt="Machine Tattoo"
+                  alt="Peluche"
                   height="50"
                   width="50"
                   variants={imageVariants}
@@ -121,7 +120,7 @@ const MainNavigation = () => {
         <div className="hidden md:flex">
           {!isAuthenticated && (
             <NavLink to="/login">
-              <motion.button className="border-primary border-4 text-primary font-bold px-4 py-2 ml-2 rounded-full shadow-lg"
+              <motion.button className="border-purple-200 border-4 text-primary font-bold px-4 py-2 ml-2 rounded-full shadow-lg"
                 variants={buttonVariants}
                 whileHover="hover"
               >
@@ -162,7 +161,7 @@ const MainNavigation = () => {
               <button
                 className="rounded-full w-10 h-10 bg-gray-200 flex items-center justify-center ml-2"
                 onClick={toggleDropdown}
-                style={{fontSize:"1.7rem"}}
+                style={{ fontSize: "1.7rem" }}
               >
                 <BiUser />
               </button>
@@ -233,7 +232,7 @@ const MainNavigation = () => {
                     e.stopPropagation();
                     openImageModal();
                   }}
-                  style={{fontSize:"1.7rem"}}
+                  style={{ fontSize: "1.7rem" }}
                 >
                   <IoAddCircleOutline />
                 </button>
