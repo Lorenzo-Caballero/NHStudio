@@ -3,7 +3,7 @@ import { FiMessageSquare, FiX } from 'react-icons/fi'; // Importa el icono de ci
 import { motion } from "framer-motion";
 import { CohereClient } from "cohere-ai";
 import axios from 'axios'; // Importa axios para hacer solicitudes HTTP
-
+import assistent from "../../assets/assistent.png";
 const ChatButton = () => {
   const [chatAbierto, setChatAbierto] = useState(false);
   const [mensajes, setMensajes] = useState([]);
@@ -12,6 +12,7 @@ const ChatButton = () => {
   const [cohereToken, setCohereToken] = useState(null); // Estado para almacenar el token
   const [enviandoMensaje, setEnviandoMensaje] = useState(false); // Estado para controlar si se está enviando un mensaje
   const mensajesRef = useRef(null); // Referencia al contenedor de mensajes
+  const [mostrarTooltip, setMostrarTooltip] = useState(false);
 
   useEffect(() => {
     obtenerTokenCohere(); // Obtener el token de Cohere al montar el componente
@@ -27,6 +28,15 @@ const ChatButton = () => {
     } catch (error) {
       console.error('Error al obtener el token de la API:', error);
     }
+  };
+
+  //tootip handle
+  const handleMouseEnter = () => {
+    setMostrarTooltip(true);
+  };
+
+  const handleMouseLeave = () => {
+    setMostrarTooltip(false);
   };
 
   // Función para hacer scroll hacia abajo en el contenedor de mensajes
@@ -76,7 +86,7 @@ const obtenerRespuestaCohere = async (userMessage) => {
     setEscribiendo(true);
     // Construir el historial de chat
     const chatHistory = [
-      { role: "SYSTEM", message: "sos un asistente virtual de Lennita BB! Somos un emprendimiento artesanal ubicado en Santa Clara del Mar, Argentina. Nos especializamos en la producción de adorables muñequitos de amigurumis hechos con mucho amor y dedicación. En Lennita BB, cada creación es única, diseñada para traer alegría y diversión a tu vida. Desde simpáticos animales hasta personajes fantásticos y figuras que vos quieras!, nuestros amigurumis son el regalo perfecto para todas las ocasiones. ¡Déjanos ser parte de tus momentos especiales con nuestros encantadores." },
+      { role: "SYSTEM", message: "sos un asistente virtual de Lennita BB! Somos un emprendimiento artesanal ubicado en Santa Clara del Mar, Argentina. Nos especializamos en la producción de adorables muñequitos de amigurumis y juguetes didacticos de madera hechos con mucho amor y dedicación. En Lennita BB, cada creación es única, diseñada para traer alegría y diversión a tu vida. Desde simpáticos animales hasta personajes fantásticos y figuras que vos quieras!, nuestros juguetes y amigurumis son el regalo perfecto para todas las ocasiones. ¡Déjanos ser parte de tus momentos especiales con nuestros encantadores. si te preguntan por su numero de telefono es :+54 9 3412 16-8460 , dile ademas de que en esta web tiene un boton de whatsApp , que haga click en el! , no des precios de ningun producto , no des promociones ni descuentos. que en ese caso se comuniquen unicamente por WhatsApp, tus respuestas deben ser breves y concisas ademas de que solo debes responder lo que te pregunte el usuario , usa emojis ." },
       { role: "USER", message: userMessage }
     ];
 
@@ -115,10 +125,25 @@ const obtenerRespuestaCohere = async (userMessage) => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6" style={{ zIndex: 9999 }}> {/* Ajuste la posición del botón aquí */}
-      <button onClick={handleChatToggle} className={`flex items-center justify-center bg-purple-300 rounded-full w-12 h-12 ${chatAbierto ? 'hidden' : ''}`}>
-        <FiMessageSquare className="text-white text-2xl" />
-      </button>
+    <div className="fixed bottom-6 right-6 z-10">
+    <button
+      onClick={handleChatToggle}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`flex items-center justify-center w-16 h-16 focus:outline-none ${chatAbierto ? 'hidden' : ''}`}
+    >
+      <img src={assistent} alt="Asistente" className="w-16 h-16" />
+    </button>
+    {mostrarTooltip && (
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="absolute bottom-16 right-4 px-2 py-1 bg-purple-500 text-white text-sm rounded-md shadow-lg"
+      >
+        Soy tu asistente virtual
+      </motion.div>
+    )}
       {chatAbierto && (
         <div className="bg-purple-100 p-4 rounded-t-lg shadow-lg w-80">
           <div className="flex justify-between mb-2">
