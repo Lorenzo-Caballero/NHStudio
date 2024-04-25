@@ -49,7 +49,7 @@ const MainNavigation = () => {
     hover: {
       scale: 1.1,
       textShadow: "0px 0px 2px #ffffff",
-      boxShadow: "0px 0px 4px #243E8B",
+      boxShadow: "0px 0px 4px #de48ef",
       transition: {
         duration: 0.3,
       },
@@ -86,21 +86,21 @@ const MainNavigation = () => {
             >
               <NavLink to="/">
                 <h1 className="text-3xl font-bold ml-2 select-none">
-                  <span className="text-primary">Lennita</span>
-                  <span className="text-purple-300">BB</span>
+                  <span className="text-[#9F5D23]">Lennita</span>
+                  <span className="text-[#f8cefd] ">BB</span>
                 </h1>
               </NavLink>
             </motion.div>
           </div>
           <ul className="hidden md:flex items-center lg:ml-8">
             <li>
-              <NavLink className="ml-4 p-2 lg:text-lg font-semibold" to="/">
+              <NavLink className="ml-4 p-2 lg:text-lg text-[#9F5D23] font-semibold" to="/">
                 Inicio
               </NavLink>
             </li>
             <li>
               <NavLink
-                className="ml-2 p-2 lg:text-lg font-semibold"
+                className="ml-2 p-2 lg:text-lg font-semibold text-[#9F5D23]"
                 to="/about"
               >
                 Sobre Mi
@@ -108,7 +108,7 @@ const MainNavigation = () => {
             </li>
             <li>
               <NavLink
-                className="ml-2 p-2 lg:text-lg font-semibold"
+                className="ml-2 p-2 lg:text-lg font-semibold text-[#9F5D23]"
                 to="/products"
               >
                 Diseños
@@ -120,7 +120,7 @@ const MainNavigation = () => {
         <div className="hidden md:flex">
           {!isAuthenticated && (
             <NavLink to="/login">
-              <motion.button className="border-purple-200 border-4 text-primary font-bold px-4 py-2 ml-2 rounded-full shadow-lg"
+              <motion.button className="border-purple-200 border-4 text-[#9F5D23] font-bold px-4 py-2 ml-2 rounded-full shadow-lg"
                 variants={buttonVariants}
                 whileHover="hover"
               >
@@ -195,21 +195,22 @@ const MainNavigation = () => {
             : "md:hidden px-8 py-4 bg-white w-full h-[20rem] relative z-20"
         }
       >
-        <li className="border-b-2 border-zinc-300 w-full text-lg font-semibold text-gray-600">
-          <NavLink to="/" onClick={navHandler}>
-            Inicio
-          </NavLink>
-        </li>
-        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
-          <NavLink to="/about" onClick={navHandler}>
-            Sobre Mi
-          </NavLink>
-        </li>
-        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
-          <NavLink to="/products" onClick={navHandler}>
-            Diseños
-          </NavLink>
-        </li>
+      <li className="border-b-2 border-zinc-300 w-full text-lg font-semibold text-[#9F5D23]">
+  <NavLink to="/" onClick={navHandler} className="text-[#9F5D23]">
+    Inicio
+  </NavLink>
+</li>
+<li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-[#9F5D23]">
+  <NavLink to="/about" onClick={navHandler} className="text-[#9F5D23]">
+    Sobre Mi
+  </NavLink>
+</li>
+<li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-[#9F5D23]">
+  <NavLink to="/products" onClick={navHandler} className="text-[#9F5D23]">
+    Diseños
+  </NavLink>
+</li>
+
 
 
         <div className="flex flex-col items-center m-4 space-y-4">
@@ -218,7 +219,7 @@ const MainNavigation = () => {
             <NavLink
               onClick={navHandler}
               to="/login"
-              className="border-primary border-4 text-primary font-bold px-9 py-2 ml-2 rounded-full shadow-lg"
+              className="border-[#7E440D] first-line:border-4 text-[#9F5D23] font-bold px-9 py-2 ml-2 rounded-full shadow-lg"
             >
               Login
             </NavLink>
