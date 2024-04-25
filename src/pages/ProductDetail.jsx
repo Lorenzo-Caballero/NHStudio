@@ -122,7 +122,7 @@ const ProductDetail = () => {
 
 
                         <div className='w-1/2'>
-                            <h2 className='font-bold text-5xl tracking-wide mb-5'>{name}</h2>
+                            <h2 className='font-bold text-5xl  text-[#9F5D23] tracking-wide mb-5'>{name}</h2>
                             <h4 className='text-xl font-extrabold text-purple-500 tracking-widest italic my-4'>
                                 {product && product.price ? `$${Number(product.price).toLocaleString('es-AR')}` : ''}
                             </h4>

@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
     return (
         <div className='w-[80vw] mx-auto py-40 text-center'>
             <div className='text-center'>
-                <h2 className='text-4xl capitalize tracking-widest mb-3 font-bold leading-none'>Diseños Disponibles</h2>
+                <h2 className='text-4xl  text-[#9F5D23]  capitalize tracking-widest mb-3 font-bold leading-none'>Diseños Disponibles</h2>
                 <div className='w-24 h-1 bg-purple-200 mx-auto'></div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 my-16'>
@@ -26,14 +26,14 @@ const FeaturedProducts = () => {
                             <img className='w-full h-[225px] block object-contain rounded product-image' src={product.image} alt={product.name} style={{ animationDelay: `${index * 0.2}s` }} />
                         </div>
                         <footer className='flex mt-4 justify-between items-center'>
-                            <h4 className='mb-0 font-normal'>{product.name}</h4>
+                            <h4 className='mb-0  text-[#9F5D23] font-normal'>{product.name}</h4>
                             <p className='mb-0 font-semibold italic text-purple-500 tracking-widest'>{product && product.price ? `$${Number(product.price).toLocaleString('es-AR')}` : ''}
                             </p>
                         </footer>
                     </div>
                 ))}
             </div>
-            <Link className='inline-block mx-auto uppercase text-center px-6 py-3 mt-4 bg-purple-500 text-white font-semibold shadow-lg rounded hover:bg-primary transition-all duration-300' to='/products'>
+            <Link className='inline-block mx-auto uppercase text-center px-6 py-3 mt-4 bg-purple-500 text-white font-semibold shadow-lg rounded hover:bg-[#F1D8F4]  transition-all duration-300' to='/products'>
                 todos los diseños
             </Link>
         </div>
