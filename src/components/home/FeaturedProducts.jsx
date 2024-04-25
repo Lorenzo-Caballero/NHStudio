@@ -1,14 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { FaSearch } from 'react-icons/fa';
 import { formatPrice } from '../../utils/helpers';
-
+import './featuredProducts.css'; // Importa el archivo CSS aquí
 
 const FeaturedProducts = () => {
     const products = useSelector((state) => state.products.products);
-
 
     return (
         <div className='w-[80vw] mx-auto py-40 text-center'>
@@ -17,7 +15,7 @@ const FeaturedProducts = () => {
                 <div className='w-24 h-1 bg-purple-200 mx-auto'></div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 my-16'>
-                {products.slice(0, 3).map((product) => (
+                {products.slice(0, 3).map((product, index) => (
                     <div key={product.id}>
                         <div className='relative rounded-md'>
                             <Link to={`/products/${product.id}`} className='flex items-center justify-center absolute bg-[#222] w-full h-[225px] rounded-md opacity-0 hover:opacity-70 transition-all duration-300'>
@@ -25,7 +23,7 @@ const FeaturedProducts = () => {
                                     <FaSearch />
                                 </span>
                             </Link>
-                            <img className='w-full h-[225px] block object-contain rounded' src={product.image} alt={product.name} />
+                            <img className='w-full h-[225px] block object-contain rounded product-image' src={product.image} alt={product.name} style={{ animationDelay: `${index * 0.2}s` }} />
                         </div>
                         <footer className='flex mt-4 justify-between items-center'>
                             <h4 className='mb-0 font-normal'>{product.name}</h4>
@@ -41,6 +39,5 @@ const FeaturedProducts = () => {
         </div>
     );
 };
-
 
 export default FeaturedProducts;
