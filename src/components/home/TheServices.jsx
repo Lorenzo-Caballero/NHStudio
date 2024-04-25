@@ -10,7 +10,7 @@ const TheServices = () => {
         <div className="bg-[#F1D8F4] px-8 py-4 lg:py-4">
             <div className="container mx-auto">
                 <h2 className="text-3xl lg:text-4xl text-[#9F5D23] font-semibold pt-8 mb-8">Descubrí nuestros servicios</h2>
-                <p className="text-lg text-[#9F5D23] mb-2">¡Bienvenido a LennitaBB! Acá te explicamos cómo trabajamos y qué servicios ofrecemos para que disfrutes al máximo de nuestros amigurumis personalizados.</p>
+                <p className="text-lg text-[#9F5D23] mb-2">¡Bienvenido a LennitaBB! Acá te explicamos como trabajamos y qué servicios ofrecemos para que disfrutes al máximo de nuestros amigurumis personalizados.</p>
 
                 <div className="service-card  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <ServiceCard

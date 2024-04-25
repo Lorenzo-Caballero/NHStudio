@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageHero from '../layout/PageHero';
+import Logo from '../assets/Logo.png';
 
 const containerVariants = {
     hidden: {
@@ -13,6 +14,21 @@ const containerVariants = {
     exit: {
         x: '-100vw',
         transition: { ease: 'easeInOut' }
+    }
+};
+
+const imageVariants = {
+    hidden: {
+        opacity: 0,
+        scale: 0.8
+    },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delay: 0.5, // Ajusta el retraso según sea necesario
+            duration: 0.5
+        }
     }
 };
 
@@ -44,7 +60,14 @@ const About = () => {
                 <div className='w-[85vw] flex mx-auto'>
                     <div className='grid sm:grid-cols-1 md:grid-cols-2 gap-8'>
                         <div>
-                            <img src="/lennita-bb-logo.png" alt="Lennita BB" className="w-full" />
+                            <motion.img 
+                                src={Logo} 
+                                alt="Lennita BB" 
+                                className="w-full" 
+                                variants={imageVariants}
+                                initial="hidden"
+                                animate="visible"
+                            />
                         </div>
                         <div>
                             <motion.h2 className='text-4xl lg:text-6xl font-bold capitalize tracking-wider'
