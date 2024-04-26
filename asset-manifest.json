@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/LennitaBB/static/css/main.9d07ef5d.css",
-    "main.js": "/LennitaBB/static/js/main.fd8f1edb.js",
+    "main.css": "/LennitaBB/static/css/main.5ebf00e0.css",
+    "main.js": "/LennitaBB/static/js/main.8baeb533.js",
+    "static/media/Logo.png": "/LennitaBB/static/media/Logo.b09abc6a7647791461e6.png",
     "static/media/osito-removebg-preview (2).png": "/LennitaBB/static/media/osito-removebg-preview (2).9d5794ba12ba66029dc8.png",
     "static/media/coneji-removebg-preview.png": "/LennitaBB/static/media/coneji-removebg-preview.e434da83bb0cc48862ea.png",
-    "static/media/portada.jpg": "/LennitaBB/static/media/portada.89e1b203641e8c5b6a48.jpg",
     "static/media/conejimarron.png": "/LennitaBB/static/media/conejimarron.70aaa689a2f1940829ed.png",
     "static/media/whatshapp3d-removebg-preview.png": "/LennitaBB/static/media/whatshapp3d-removebg-preview.21ddba707b9b8ae027c4.png",
     "static/media/assistent.png": "/LennitaBB/static/media/assistent.f32db21ebef49f3648de.png",
     "static/media/LennitaBBlogo1.png": "/LennitaBB/static/media/LennitaBBlogo1.9b46220c7f777a615670.png",
     "index.html": "/LennitaBB/index.html",
     "static/media/HambergurMenu.svg": "/LennitaBB/static/media/HambergurMenu.9955f00c01a0988ffe2fb16386e78554.svg",
-    "main.9d07ef5d.css.map": "/LennitaBB/static/css/main.9d07ef5d.css.map",
-    "main.fd8f1edb.js.map": "/LennitaBB/static/js/main.fd8f1edb.js.map"
+    "main.5ebf00e0.css.map": "/LennitaBB/static/css/main.5ebf00e0.css.map",
+    "main.8baeb533.js.map": "/LennitaBB/static/js/main.8baeb533.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d07ef5d.css",
-    "static/js/main.fd8f1edb.js"
+    "static/css/main.5ebf00e0.css",
+    "static/js/main.8baeb533.js"
   ]
 }
