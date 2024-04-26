@@ -56,9 +56,9 @@ const About = () => {
             exit="exit"
         >
             <PageHero title="Acerca de Lennita BB" />
-            <div className='w-full py-32'>
+            <div className='w-full py-20'>
                 <div className='w-[85vw] flex mx-auto'>
-                    <div className='grid sm:grid-cols-1 md:grid-cols-2 gap-8'>
+                    <div className='grid sm:grid-cols-1 md:grid-cols-2 '>
                         <div>
                             <motion.img 
                                 src={Logo} 
@@ -77,7 +77,7 @@ const About = () => {
                             >
                                 Nuestra Historia
                                 <svg
-                                    className="svg-underline stroke-[#ffb81c] relative z-10 w-1/2"
+                                    className="svg-underline stroke-[#ac1cff] relative z-10 w-1/2"
                                     strokeLinejoin="round"
                                     strokeLinecap="round"
                                     strokeWidth={7}
