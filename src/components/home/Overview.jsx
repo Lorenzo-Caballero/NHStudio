@@ -47,7 +47,7 @@ const Overview = () => {
             className="overview-container w-full bg-[#F1D8F4] py-20 md:py-32 text-center text-[#9F5D23]"
         >
             <div className="px-3 lg:px-0 lg:w-[55%] mx-auto">
-                <h2 className="font-extrabold text-5xl capitalize mb-10 tracking-widest leading-10">Lennita BB</h2>
+                <h2 className="font-extrabold text-5xl capitalize mb-10 tracking-widest leading-10">Quienes somos</h2>
                 <p className="text-lg tracking-widest font-normal mb-5 leading-7">¡Bienvenidos a Lennita BB! Somos un emprendimiento artesanal ubicado en Santa Clara del Mar, Argentina. Nos especializamos en la producción de adorables muñequitos de amigurumis hechos con mucho amor y dedicación. En Lennita BB, cada creación es única, diseñada para traer alegría y diversión a tu vida. Desde simpáticos animales hasta personajes fantásticos, nuestros amigurumis son el regalo perfecto para todas las ocasiones. ¡Déjanos ser parte de tus momentos especiales con nuestros encantadores muñequitos de amigurumis!</p>
             </div>
         </motion.div>
