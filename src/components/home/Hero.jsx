@@ -94,7 +94,7 @@ const Hero = () => {
             className="absolute top-0 left-0 w-32 lg:w-48 z-0"
             initial={{ opacity: 0, x: -50, y: -50 }} // Fuera de la pantalla en la esquina superior izquierda
             animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }} // Transición suave con retraso
+            transition={{ duration: 1, ease: "easeInOut" }} // Transición suave con retraso
           />
 
           {/* Elemento2: Imagen en la esquina inferior derecha */}
@@ -104,7 +104,7 @@ const Hero = () => {
             className="absolute bottom-0 right-0 w-32 lg:w-48 z-0"
             initial={{ opacity: 0, x: 50, y: 50 }} // Fuera de la pantalla en la esquina inferior derecha
             animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }} // Transición suave con retraso
+            transition={{ duration: 1,  ease: "easeInOut" }} // Transición suave con retraso
           />
 
           {/* Elemento3: Imagen en la esquina superior derecha */}
@@ -114,7 +114,7 @@ const Hero = () => {
             className="absolute top-0 right-0 w-32 lg:w-48 z-0"
             initial={{ opacity: 0, x: 50, y: -50 }} // Fuera de la pantalla en la esquina superior derecha
             animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }} // Transición suave con retraso
+            transition={{ duration: 1, ease: "easeInOut" }} // Transición suave con retraso
           />
 
           {/* Elemento4: Imagen en la esquina inferior izquierda */}
@@ -124,7 +124,7 @@ const Hero = () => {
             className="absolute bottom-0 left-0 w-32 lg:w-48 z-0"
             initial={{ opacity: 0, x: -50, y: 50 }} // Fuera de la pantalla en la esquina inferior izquierda
             animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }} // Transición suave con retraso
+            transition={{ duration: 1,  ease: "easeInOut" }} // Transición suave con retraso
           />
         </>
       )}
