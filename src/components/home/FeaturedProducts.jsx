@@ -18,12 +18,12 @@ const FeaturedProducts = () => {
                 {products.slice(0, 3).map((product, index) => (
                     <div key={product.id}>
                         <div className='relative rounded-md'>
-                            <Link to={`/products/${product.id}`} className='flex items-center justify-center absolute bg-[#222] w-full h-[225px] rounded-md opacity-0 hover:opacity-70 transition-all duration-300'>
+                            <Link to={`/products/${product.id}`} className='absolute inset-0 flex items-center justify-center bg-[#222] rounded-md opacity-0 hover:opacity-70 transition-all duration-300'>
                                 <span className='flex items-center justify-center bg-purple-200 w-10 h-10 rounded-full'>
                                     <FaSearch />
                                 </span>
                             </Link>
-                            <img className='w-full h-[225px] block object-contain rounded product-image' src={product.image} alt={product.name} style={{ animationDelay: `${index * 0.2}s` }} />
+                            <img className='product-image w-full h-[225px] block object-contain rounded ' src={product.image} alt={product.name} style={{ animationDelay: `${index * 0.2}s` }} />
                         </div>
                         <footer className='flex mt-4 justify-between items-center'>
                             <h4 className='mb-0  text-[#9F5D23] font-normal'>{product.name}</h4>

@@ -44,7 +44,7 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
 
 
       const response = await axios.post(
-        "https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/amigurumis",
+        "http://localhost:4000/api/products/",
         JSON.stringify({ ...values, image: values.image }), // Enviar la URL acortada
         {
           headers: {
