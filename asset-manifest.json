@@ -1,25 +1,18 @@
 {
   "files": {
-    "main.css": "/LennitaBB/static/css/main.a4088ed8.css",
-    "main.js": "/LennitaBB/static/js/main.428685b3.js",
+    "main.css": "/LennitaBB/static/css/main.55ced274.css",
+    "main.js": "/LennitaBB/static/js/main.e6e914b3.js",
     "static/media/video.mp4": "/LennitaBB/static/media/video.50f170a19cc3d0e21925.mp4",
     "static/media/Logo.png": "/LennitaBB/static/media/Logo.b09abc6a7647791461e6.png",
-    "static/media/osito-removebg-preview (2).png": "/LennitaBB/static/media/osito-removebg-preview (2).9d5794ba12ba66029dc8.png",
-    "static/media/coneji-removebg-preview.png": "/LennitaBB/static/media/coneji-removebg-preview.e434da83bb0cc48862ea.png",
-    "static/media/conejimarron.png": "/LennitaBB/static/media/conejimarron.70aaa689a2f1940829ed.png",
     "static/media/whatshapp3d-removebg-preview.png": "/LennitaBB/static/media/whatshapp3d-removebg-preview.21ddba707b9b8ae027c4.png",
     "static/media/assistent.png": "/LennitaBB/static/media/assistent.f32db21ebef49f3648de.png",
-    "static/media/ElementoPastel2.png": "/LennitaBB/static/media/ElementoPastel2.ca5565af385e4c6df2f4.png",
-    "static/media/RosaPastel.png": "/LennitaBB/static/media/RosaPastel.af8ff80a535879691972.png",
-    "static/media/ElementoPastel4.png": "/LennitaBB/static/media/ElementoPastel4.5cc2afea082bffdaf909.png",
-    "static/media/ElementoPastel3.png": "/LennitaBB/static/media/ElementoPastel3.97f0513cd008fbda6d9a.png",
     "index.html": "/LennitaBB/index.html",
     "static/media/HambergurMenu.svg": "/LennitaBB/static/media/HambergurMenu.9955f00c01a0988ffe2fb16386e78554.svg",
-    "main.a4088ed8.css.map": "/LennitaBB/static/css/main.a4088ed8.css.map",
-    "main.428685b3.js.map": "/LennitaBB/static/js/main.428685b3.js.map"
+    "main.55ced274.css.map": "/LennitaBB/static/css/main.55ced274.css.map",
+    "main.e6e914b3.js.map": "/LennitaBB/static/js/main.e6e914b3.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4088ed8.css",
-    "static/js/main.428685b3.js"
+    "static/css/main.55ced274.css",
+    "static/js/main.e6e914b3.js"
   ]
 }
