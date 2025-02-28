@@ -2,8 +2,8 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Lorenzo-Caballero.github.io/LennitaBB",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@heroicons/react": "^1.0.6",
     "@huggingface/inference": "^2.6.7",
     "@reduxjs/toolkit": "^1.8.0",
@@ -16,6 +16,7 @@
     "cohere-ai": "^7.9.3",
     "crypto-browserify": "^3.12.0",
     "dotenv": "^16.4.5",
+    "firebase": "^10.11.1",
     "formik": "^2.2.9",
     "framer-motion": "^6.3.0",
     "gapi-script": "^1.2.0",

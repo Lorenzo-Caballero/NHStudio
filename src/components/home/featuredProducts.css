@@ -12,7 +12,7 @@
 	}
 }
 
-img.product-image {
+.product-image {
 	view-timeline-name: --image;
 	view-timeline-axis: block;
 

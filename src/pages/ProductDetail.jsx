@@ -58,8 +58,8 @@ const ProductDetail = () => {
 
             // Convertir el precio a un número
             const numericPrice = parseFloat(price);
-
-            const response = await fetch(`https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/users/transactions/process`, {
+            
+            const response = await fetch(`https://restapi-lennitabb-production.up.railway.app/api/transactions`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ const ProductDetail = () => {
                     // }
                 })
             });
-
+            console.log(response);
             const data = await response.json();
             // console.log(data); // Aquí puedes manejar la respuesta de la API
 
