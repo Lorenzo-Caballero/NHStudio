@@ -2,11 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='bottom-0 left-0 w-full'>
-            <div className='flex justify-center items-center text-center h-20 bg-[#C87A34] text-[#f4d4f8] md:tracking-widest leading-tight font-semibold'>
+        <div className='w-full pt-8'>
+            <div className='flex flex-col md:flex-row justify-center items-center text-center h-20 bg-gradient-to-r from-[#1E3A8A] to-[#4F46E5] text-[#F1D8F4] md:tracking-widest leading-tight font-semibold px-4'>
                 <h4>
                     &copy; {new Date().getFullYear()}
-                    <span className='text-[#f19ffa]'> LennitaBB </span>
+                    <span className='text-[#FACC15]'> NH Studio </span>
                 </h4>
                 <h4 className='ml-3'>Todos los derechos reservados.</h4>
             </div>

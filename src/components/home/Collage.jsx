@@ -1,23 +1,31 @@
 import React from 'react';
+import image from "./imagen1.jpg";
+import image2 from "./imagen2.png";
+import image3 from "./imagen3.png";
+import image4 from "./imagen4.png";
+import image5 from "./imagen5.png";
+import image6 from "./imagen6.png";
 
 const Collage = () => {
     return (
-        <div className="flex flex-wrap justify-between gap-4 p-4 overflow-hidden">
+        <div className="flex flex-wrap sm:flex-nowrap justify-between gap-2 p-4 pt-8 overflow-hidden">
             {/* Imágenes de la izquierda (6 imágenes) */}
-            <div className="flex flex-wrap gap-4 w-full sm:w-2/3 md:w-2/3">
-                <img src="/images/imagen1.jpg" alt="Image 1" className="w-1/2 sm:w-1/3 md:w-1/3 h-auto border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
-                <img src="/images/imagen2.jpg" alt="Image 2" className="w-1/2 sm:w-1/3 md:w-1/3 h-auto border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
-                <img src="/images/imagen3.jpg" alt="Image 3" className="w-1/2 sm:w-1/3 md:w-1/3 h-auto border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
-                <img src="/images/imagen4.jpg" alt="Image 4" className="w-1/2 sm:w-1/3 md:w-1/3 h-auto border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
-                <img src="/images/imagen5.jpg" alt="Image 5" className="w-1/2 sm:w-1/3 md:w-1/3 h-auto border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
-                <img src="/images/imagen6.jpg" alt="Image 6" className="w-1/2 sm:w-1/3 md:w-1/3 h-auto border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
+            <div className="grid grid-cols-3 gap-x-1 gap-y-0 w-full sm:w-2/3">
+                {/* Las primeras 3 imágenes para pantallas móviles */}
+                <img src={image} alt="Image 1" className="w-full h-96 sm:h-112 lg:h-full border-4 border-white object-cover" />
+                <img src={image2} alt="Image 2" className="w-full h-96 sm:h-112 lg:h-full border-4 border-white object-cover" />
+                <img src={image3} alt="Image 3" className="w-full h-96 sm:h-112 lg:h-full border-4 border-white object-cover" />
+                {/* Las siguientes 3 imágenes para pantallas móviles */}
+                <img src={image4} alt="Image 4" className="w-full h-96 sm:h-112 lg:h-full border-4 border-white object-cover" />
+                <img src={image5} alt="Image 5" className="w-full h-96 sm:h-112 lg:h-full border-4 border-white object-cover" />
+                <img src={image6} alt="Image 6" className="w-full h-96 sm:h-112 lg:h-full border-4 border-white object-cover" />
             </div>
 
             {/* Imágenes de la derecha (2 grandes y 1 pequeña) */}
-            <div className="flex flex-col gap-4 w-full sm:w-1/3 md:w-1/3">
-                <img src="/images/imagen7.jpg" alt="Image 7" className="w-full h-64 border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
-                <img src="/images/imagen8.jpg" alt="Image 8" className="w-full h-64 border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
-                <img src="/images/imagen9.jpg" alt="Image 9" className="w-full h-40 border-4 border-transparent bg-gradient-to-r from-[#4f79b1] to-[#F1D8F4] object-cover" />
+            <div className="flex flex-col gap-2 w-full sm:w-1/3">
+                <img src={image} alt="Image 7" className="w-full h-80 sm:h-80 lg:h-96 border-4 border-white object-cover" />
+                <img src={image2} alt="Image 8" className="w-full h-80 sm:h-80 lg:h-96 border-4 border-white object-cover" />
+                <img src={image3} alt="Image 9" className="w-full h-56 sm:h-56 lg:h-80 border-4 border-white object-cover" />
             </div>
         </div>
     );
