@@ -5,7 +5,8 @@ import Sort from '../components/products/Sort'
 import ProductsList from '../components/products/ProductsList';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-
+import ChatBot from '../components/home/ChatBot';
+import WhatsAppButton from './WhatsAppButton';
 
 const containerVariants = {
     hidden: {
@@ -32,6 +33,8 @@ const Products = () => {
             animate="visible"
             exit="exit"
         >
+            <WhatsAppButton/>
+            <ChatBot/>
             <PageHero title="Diseños" />
             <div className='flex w-[85vw] my-16 mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-12 gap-y-12'>

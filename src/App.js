@@ -26,7 +26,7 @@ import RegisterRedirect from "./components/auth/RegisterRedirect";
 import DashboardRedirect from "./components/auth/DashboardRedirect";
 import HomeRedirect from "./components/auth/HomeRedirect";
 //import Games from "./components/home/Games";
-import { AuthProvider } from "./components/context/AuthContext";
+import { AuthProvider } from "./components/context/AuthContext"; 
 import HugginFace from "./components/home/HugginFace";
 
 
@@ -56,7 +56,7 @@ const App = () => {
 
             <Route element={<HomeRedirect />}>
               <Route path="/" element={<Home />} />
-              <Route path="/LennitaBB" element={<Home />} />
+              <Route path="/NHStudio" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/HugginFace" element={<HugginFace />} />
 

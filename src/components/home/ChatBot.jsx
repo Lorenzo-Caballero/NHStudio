@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CohereClient } from "cohere-ai";
 import axios from 'axios'; // Importa axios para hacer solicitudes HTTP
 import assistent from "../../assets/assistent.png";
-const ChatButton = () => {
+const ChatBot = () => {
   const [chatAbierto, setChatAbierto] = useState(false);
   const [mensajes, setMensajes] = useState([]);
   const [nuevoMensaje, setNuevoMensaje] = useState('');
@@ -84,7 +84,7 @@ const obtenerRespuestaCohere = async (userMessage) => {
     setEscribiendo(true);
     // Construir el historial de chat
     const chatHistory = [
-      { role: "SYSTEM", message: "Eres un asistente de Fauno, das respuestas breves las respuestas no deben superar los cuatro renglones, eres argentino , fauno es un tatuador profesional de Santa Clara del Mar. Como asistente virtual de Fauno, debes conocer que Fauno es un tatuador con más de siete años de experiencia y se destaca en la realización de diseños exclusivos. Se inspira en la naturaleza, animales, insectos, flora y fauna, además tatua en el estudio de @Nahuelherreratattoo un reconocido artista de Mar del Plata , Nahuel es experto en hiperrealismo , ademas de Nahuel , Fauno es compañero de David Garcia, otro reconocido artista de Mar del Plata ,David es experto en retrato de Animales . Debes responder con amabilidad preguntas referenciadas al mundo del tatuaje. Si están fuera del contexto del tatuaje o del arte, responde con un 'No conozco esos temas', si te piden el numero de telefono de fauno ,fauno tiene 26 años dales el siguiente link para que accedan :`https://wa.me/2233407440`, si te preguntan por paloma , es la novia y musa inspiradora de fauno , si te preguntan por el valor minimo de un tattoo , es de 10 mil pesos argentinos el valor minimo . Además, ten en cuenta que tienes un límite de respuesta de 70 tokens, evita superarlo. usa emojis ." },
+      { role: "SYSTEM", message: "Eres un asistente de Fauno, das respuestas breves las respuestas no deben superar los cuatro renglones, eres argentino , fauno es un tatuador profesional de Santa Clara del Mar, ahora tatua en Mar del Plata en el estudio de Nahuel Herrera , ubicado en Jara al 22 entre santa cruz y rio negro. Como asistente virtual de Fauno, debes conocer que Fauno es un tatuador con más de siete años de experiencia y se destaca en la realización de diseños exclusivos. Se inspira en la naturaleza, animales, insectos, flora y fauna, además tatua en el estudio de @Nahuelherreratattoo un reconocido artista de Mar del Plata , Nahuel es experto en hiperrealismo , ademas de Nahuel , Fauno es compañero de David Garcia @garciadavidtattoo, otro reconocido artista de Mar del Plata ,David es experto en retrato de Animales . Debes responder con amabilidad preguntas referenciadas al mundo del tatuaje. Si están fuera del contexto del tatuaje o del arte, responde con un 'No conozco esos temas', si te piden el numero de telefono de fauno ,fauno tiene 27 años dales el siguiente link para que accedan :`https://wa.me/2233407440`, si te preguntan por paloma , es la novia y musa inspiradora de fauno , si te preguntan por el valor minimo de un tattoo , es de 30 mil pesos argentinos el valor minimo . Además, ten en cuenta que tienes un límite de respuesta de 70 tokens, evita superarlo. usa emojis ." },
       { role: "USER", message: userMessage }
     ];
 
@@ -137,20 +137,20 @@ const obtenerRespuestaCohere = async (userMessage) => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="absolute bottom-16 right-4 px-2 py-1 bg-purple-500 text-white text-sm rounded-md shadow-lg"
+        className="absolute bottom-16 right-4 px-2 py-1 bg-[#4779a4] text-white text-sm rounded-md shadow-lg"
       >
         Soy tu asistente virtual
       </motion.div>
     )}
       {chatAbierto && (
-        <div className="bg-purple-100 p-4 rounded-t-lg shadow-lg w-80">
+        <div className="bg-gradient-to-br from-[#4779a4] to-[#f7e7ce] p-4 rounded-t-lg shadow-lg w-80">
           <div className="flex justify-between mb-2">
             <button onClick={handleCloseChat}><FiX className="text-gray-600" /></button> {/* Botón de cierre */}
           </div>
           <div ref={mensajesRef} className="h-60 overflow-y-auto mb-2">
             {mensajes.map((mensaje, index) => (
-              <div key={index} className={`mb-2 ${mensaje.origen === 'usuario' ? 'text-right' : 'text-left'} px-4 py-2 rounded-lg bg-purple-200 text-gray-800`}>
-                <strong>{mensaje.origen === 'usuario' ? 'Tú' : 'Asistente LennitaBB'}</strong>: {mensaje.texto}
+              <div key={index} className={`mb-2 ${mensaje.origen === 'usuario' ? 'text-right' : 'text-left'} px-4 py-2 rounded-lg bg-gradient-to-br from-[#6d9fcb]  to-[#1f6bae] text-white`}>
+                <strong>{mensaje.origen === 'usuario' ? 'Tú' : 'Asistente de NH Studio'}</strong>: {mensaje.texto}
               </div>
             ))}
             {escribiendo && (
@@ -158,9 +158,9 @@ const obtenerRespuestaCohere = async (userMessage) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="mb-2 text-left px-4 py-2 rounded-lg bg-purple-200"
+                className="mb-2 text-left px-4 py-2 rounded-lg bg-[#4779a4]"
               >
-                <strong>Asistente LennitaBB</strong>: ...
+                <strong>NH Studio</strong>: ...
               </motion.div>
             )}
           </div>
@@ -174,7 +174,7 @@ const obtenerRespuestaCohere = async (userMessage) => {
               className="flex-1 border rounded-full px-4 py-2 outline-none"
               disabled={enviandoMensaje} // Deshabilita el input mientras se está enviando un mensaje
             />
-            <button onClick={handleEnviarMensaje} disabled={enviandoMensaje} className="ml-2 bg-purple-300 rounded-full px-4 py-2 text-white font-semibold">Enviar</button>
+            <button onClick={handleEnviarMensaje} disabled={enviandoMensaje} className="ml-2 bg-gradient-to-br from-[#f7e7ce]  to-[#4779a4] rounded-full px-4 py-2 text-white font-semibold">Enviar</button>
           </div>
         </div>
       )}
@@ -182,4 +182,4 @@ const obtenerRespuestaCohere = async (userMessage) => {
   );
 };
 
-export default ChatButton;
+export default ChatBot;

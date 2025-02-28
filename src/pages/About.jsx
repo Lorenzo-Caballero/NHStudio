@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PageHero from '../layout/PageHero';
 import Logo from '../assets/LogoNH.png';
-
+import ChatBot from '../components/home/ChatBot';
+import WhatsAppButton from './WhatsAppButton';
 const containerVariants = {
     hidden: {
         opacity: 0
@@ -55,6 +56,9 @@ const About = () => {
             animate="visible"
             exit="exit"
         >
+            <WhatsAppButton/>
+                  <ChatBot/>
+
             <PageHero title="Acerca de NH Studio" />
             <div className='w-full py-20'>
                 <div className='w-[85vw] flex mx-auto'>
@@ -70,7 +74,7 @@ const About = () => {
                             />
                         </div>
                         <div>
-                            <motion.h2 className='text-4xl lg:text-6xl font-bold capitalize tracking-wider'
+                            <motion.h2 className='text-4xl lg:text-6xl font-bold capitalize tracking-wider text-[#2c3e50]'
                                 initial={{ opacity: 0, y: 60 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: .5 }}

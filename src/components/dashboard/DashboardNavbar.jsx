@@ -2,7 +2,6 @@ import React from 'react';
 
 import { BiLogOutCircle } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import AdminIcon from '../../assets/admin.png';
 import { logout } from '../../store/actions/auth-actions';
 
 
@@ -18,7 +17,7 @@ const DashboardNavbar = () => {
         <div className='w-full h-[60px] shadow bg-white'>
             <div className='flex items-center justify-between w-full h-full px-10 mb-8'>
                 <div className='flex items-center space-x-2'>
-                    <img src={AdminIcon} alt="admin icon" />
+                    <img  alt="admin icon" />
                     <h3 className='font-semibold'>Administrator.</h3>
                 </div>
                 <div className='ml-auto'>

@@ -5,6 +5,9 @@ import image3 from "./imagen3.png";
 import image4 from "./imagen4.png";
 import image5 from "./imagen5.png";
 import image6 from "./imagen6.png";
+import image7 from "./imagen7.png";
+import image8 from "./imagen8.png";
+import image9 from "./imagen8.png";
 
 const Collage = () => {
     return (
@@ -23,8 +26,8 @@ const Collage = () => {
 
             {/* Imágenes de la derecha (2 grandes y 1 pequeña) */}
             <div className="flex flex-col gap-2 w-full sm:w-1/3">
-                <img src={image} alt="Image 7" className="w-full h-80 sm:h-80 lg:h-96 border-4 border-white object-cover" />
-                <img src={image2} alt="Image 8" className="w-full h-80 sm:h-80 lg:h-96 border-4 border-white object-cover" />
+                <img src={image7} alt="Image 7" className="w-full h-80 sm:h-80 lg:h-96 border-4 border-white object-cover" />
+                <img src={image8} alt="Image 8" className="w-full h-80 sm:h-80 lg:h-96 border-4 border-white object-cover" />
                 <img src={image3} alt="Image 9" className="w-full h-56 sm:h-56 lg:h-80 border-4 border-white object-cover" />
             </div>
         </div>

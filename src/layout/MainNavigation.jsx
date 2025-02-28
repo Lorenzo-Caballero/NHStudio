@@ -94,7 +94,7 @@ const MainNavigation = () => {
                 </NavLink>
               </motion.div>
             </div>
-            <ul className="hidden md:flex items-center lg:ml-8">
+            <ul className="hidden md:flex items-center lg:ml-8 text-[#2c3e50]">
               <li>
                 <NavLink className="ml-4 p-2 lg:text-lg font-semibold" to="/">
                   Inicio

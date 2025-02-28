@@ -93,7 +93,7 @@ const Filters = ({ filters }) => {
       </form>
       <button
         type="button"
-        className="bg-purple-500 text-white px-2 py-1 rounded-md font-semibold shadow-md"
+        className="bg-gradient-to-br from-[#4779a4] to-[#f7e7ce]  text-white px-2 py-1 rounded-md font-semibold shadow-md"
         onClick={clearFilters}
       >
         Limpiar Filtros      </button>

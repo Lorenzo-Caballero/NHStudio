@@ -74,8 +74,8 @@ const Login = () => {
     >
       <div className="w-[320px] sm:w-[400px] rounded shadow-xl border-2 border-solid px-4 sm:px-8 py-20 mx-auto">
         <h2 className="text-3xl uppercase tracking-wider font-bold text-center mb-12 select-none">
-          <span className="text-primary">Lennita</span>
-          <span className="text-secondary-200">BB</span>
+        <span className="text-[#4779a4]">NH</span>
+          <span className="text-[#2c3e50]">Studio</span>
         </h2>
         <form onSubmit={handleSubmit}>
           <InputField
