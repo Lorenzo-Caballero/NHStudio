@@ -2,10 +2,9 @@ import React from 'react';
 
 import { motion } from 'framer-motion';
 
-import Hero from "../components/home/Hero";
 import Overview from '../components/home/Overview';
 import FeaturedProducts from '../components/home/FeaturedProducts';
-import TheServices from '../components/home/TheServices';
+import Collage from '../components/home/Collage';
 import ChatBot from '../components/home/ChatBot';
 import WhatsAppButton from './WhatsAppButton';
 import HeroBanner from '../components/home/HeroBanner';
@@ -38,7 +37,7 @@ const Home = () => {
       <FeaturedProducts />
       <ChatBot/>
       <WhatsAppButton/>
-      <TheServices />
+      <Collage />
     </motion.main>
   );
 };
