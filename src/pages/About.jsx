@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageHero from '../layout/PageHero';
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/LogoNH.png';
 
 const containerVariants = {
     hidden: {
