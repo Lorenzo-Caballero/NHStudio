@@ -22,7 +22,6 @@ const ChatButton = () => {
   const obtenerTokenCohere = async () => {
     try {
       const response = await axios.get('https://restapi-lennitabb-production.up.railway.app/api/ai');
-      console.log(response);
       setCohereToken(response.data); // Almacena el token en el estado
     } catch (error) {
       console.error('Error al obtener el token de la API:', error);
