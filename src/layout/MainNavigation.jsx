@@ -82,34 +82,17 @@ const MainNavigation = () => {
       <div className="flex justify-between items-center w-full h-full px-8 sm:mb-6">
         <div className="flex">
           <div className="flex items-center">
-            <motion.div
-              className="w-[50px] h-[50px]"
-              drag
-              dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-              dragElastic={0.7}
-            >
-              <NavLink to="/">
-                <motion.img
-                  src={""}
-                  alt="Machine Tattoo"
-                  height="50"
-                  width="50"
-                  variants={imageVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
-              </NavLink>
-            </motion.div>
+
             <motion.div
               initial={{ y: -250 }}
               animate={{ y: 0 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 150 }}
             >
               <NavLink to="/">
-                <h1 className="text-3xl font-bold ml-2 select-none">
-                  <span className="text-primary">Fauno</span>
-                  <span className="text-purple-300">Tattoo</span>
-                </h1>
+              <h1 className="text-3xl font-bold ml-2 select-none text-[#4779a4] font-poppins transform skew-x-6">
+  NH <span className="text-[#2c3e50]">Studio</span>
+</h1>
+
               </NavLink>
             </motion.div>
           </div>

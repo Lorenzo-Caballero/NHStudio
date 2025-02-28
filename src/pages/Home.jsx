@@ -8,6 +8,7 @@ import FeaturedProducts from '../components/home/FeaturedProducts';
 import TheServices from '../components/home/TheServices';
 import ChatBot from '../components/home/ChatBot';
 import WhatsAppButton from './WhatsAppButton';
+import HeroBanner from '../components/home/HeroBanner';
 
 const containerVariants = {
   hidden: {
@@ -32,7 +33,7 @@ const Home = () => {
       animate="visible"
       exit="exit"
     >
-      <Hero />
+      <HeroBanner />
       <Overview />
       <FeaturedProducts />
       <ChatBot/>

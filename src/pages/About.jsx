@@ -55,14 +55,14 @@ const About = () => {
             animate="visible"
             exit="exit"
         >
-            <PageHero title="Acerca de Lennita BB" />
+            <PageHero title="Acerca de NH Studio" />
             <div className='w-full py-20'>
                 <div className='w-[85vw] flex mx-auto'>
-                    <div className='grid sm:grid-cols-1 md:grid-cols-2 '>
+                    <div className='grid sm:grid-cols-1 md:grid-cols-2'>
                         <div>
                             <motion.img 
                                 src={Logo} 
-                                alt="Lennita BB" 
+                                alt="NH Studio" 
                                 className="w-full" 
                                 variants={imageVariants}
                                 initial="hidden"
@@ -77,7 +77,7 @@ const About = () => {
                             >
                                 Nuestra Historia
                                 <svg
-                                    className="svg-underline stroke-[#ac1cff] relative z-10 w-1/2"
+                                    className="svg-underline stroke-[#4779a4] relative z-10 w-1/2"
                                     strokeLinejoin="round"
                                     strokeLinecap="round"
                                     strokeWidth={7}
@@ -93,14 +93,16 @@ const About = () => {
                                     />
                                 </svg>
                             </motion.h2>
-                            <motion.p className='leading-10 text-gray-600 py-8 text-lg'
+                            <motion.p className='leading-10 text-[#2c3e50] py-8 text-lg'
                                 initial={{ opacity: 0, y: 60 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: .5, duration: .8 }}
                             >
-                                ¡Bienvenidos a Lennita BB! Somos un emprendimiento artesanal ubicado en Santa Clara del Mar, Argentina. Nos especializamos en la producción de adorables muñequitos de amigurumis hechos con mucho amor y dedicación.
-                                En Lennita BB, cada creación es única, diseñada para traer alegría y diversión a tu vida. Desde simpáticos animales hasta personajes fantásticos, nuestros amigurumis son el regalo perfecto para todas las ocasiones.
-                                ¡Déjanos ser parte de tus momentos especiales con nuestros encantadores muñequitos de amigurumis!
+                                ¡Bienvenidos a NH Studio! Somos un estudio de tatuajes ubicado en Mar del Plata, diseñado para brindarte la mejor experiencia de tatuaje de tu vida. En NH Studio, nos enfocamos en ofrecer un ambiente único donde podrás disfrutar de cada paso del proceso, desde la elección de tu diseño hasta el cuidado post-tatuaje.
+                                <br />
+                                Contamos con los tatuadores más profesionales de la zona, quienes están comprometidos con la excelencia y la creatividad en cada uno de sus trabajos. Ya sea que estés buscando un diseño único o quieras hacer realidad tu idea, estamos aquí para hacer que tu tatuaje sea una obra de arte.
+                                <br />
+                                ¡Déjanos ser parte de tu historia con un tatuaje que te acompañará siempre!
                             </motion.p>
                         </div>
                     </div>
