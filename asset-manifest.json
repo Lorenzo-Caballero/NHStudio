@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/LennitaBB/static/css/main.eaa37d15.css",
-    "main.js": "/LennitaBB/static/js/main.75445a13.js",
-    "static/media/video.mp4": "/LennitaBB/static/media/video.50f170a19cc3d0e21925.mp4",
-    "static/media/imagen8.png": "/LennitaBB/static/media/imagen8.d39c39189be0f327d791.png",
-    "static/media/imagen5.png": "/LennitaBB/static/media/imagen5.d7070868f78692f6c38d.png",
-    "static/media/imagen7.png": "/LennitaBB/static/media/imagen7.4d88b7ecb006f2902b7f.png",
-    "static/media/imagen3.png": "/LennitaBB/static/media/imagen3.40ab6174b57e3044059b.png",
-    "static/media/imagen6.png": "/LennitaBB/static/media/imagen6.2df84d91b51d5bf987ca.png",
-    "static/media/imagen2.png": "/LennitaBB/static/media/imagen2.e5e7ad2219d6aa631cb6.png",
-    "static/media/imagen4.png": "/LennitaBB/static/media/imagen4.28819c4d0a34ecedfaab.png",
-    "static/media/imagen1.jpg": "/LennitaBB/static/media/imagen1.ee8b39240539a016f301.jpg",
-    "static/media/NHLogo.png": "/LennitaBB/static/media/NHLogo.be98936023cd32c46bc2.png",
-    "static/media/LogoNH.png": "/LennitaBB/static/media/LogoNH.0f8b1d3b0fd25887ab16.png",
-    "static/media/whatshapp3d-removebg-preview.png": "/LennitaBB/static/media/whatshapp3d-removebg-preview.c10f01c7c55402b7eaf8.png",
-    "static/media/assistent.png": "/LennitaBB/static/media/assistent.6d83df8a46ea1f9a244d.png",
-    "index.html": "/LennitaBB/index.html",
-    "static/media/HambergurMenu.svg": "/LennitaBB/static/media/HambergurMenu.9955f00c01a0988ffe2fb16386e78554.svg",
-    "main.eaa37d15.css.map": "/LennitaBB/static/css/main.eaa37d15.css.map",
-    "main.75445a13.js.map": "/LennitaBB/static/js/main.75445a13.js.map"
+    "main.css": "/NHStudio/static/css/main.cf7f5eef.css",
+    "main.js": "/NHStudio/static/js/main.496683da.js",
+    "static/media/video.mp4": "/NHStudio/static/media/video.50f170a19cc3d0e21925.mp4",
+    "static/media/imagen5.png": "/NHStudio/static/media/imagen5.d7070868f78692f6c38d.png",
+    "static/media/imagen7.png": "/NHStudio/static/media/imagen7.4d88b7ecb006f2902b7f.png",
+    "static/media/imagen9.jpg": "/NHStudio/static/media/imagen9.cecfe90af1f1e707563c.jpg",
+    "static/media/imagen3.png": "/NHStudio/static/media/imagen3.40ab6174b57e3044059b.png",
+    "static/media/imagen10.png": "/NHStudio/static/media/imagen10.0173e9b52f6dbc06287d.png",
+    "static/media/imagen6.png": "/NHStudio/static/media/imagen6.2df84d91b51d5bf987ca.png",
+    "static/media/imagen2.png": "/NHStudio/static/media/imagen2.e5e7ad2219d6aa631cb6.png",
+    "static/media/imagen4.png": "/NHStudio/static/media/imagen4.28819c4d0a34ecedfaab.png",
+    "static/media/imagen1.jpg": "/NHStudio/static/media/imagen1.ee8b39240539a016f301.jpg",
+    "static/media/NHLogo.png": "/NHStudio/static/media/NHLogo.be98936023cd32c46bc2.png",
+    "static/media/LogoNH.png": "/NHStudio/static/media/LogoNH.0f8b1d3b0fd25887ab16.png",
+    "static/media/whatshapp3d-removebg-preview.png": "/NHStudio/static/media/whatshapp3d-removebg-preview.c10f01c7c55402b7eaf8.png",
+    "static/media/assistent.png": "/NHStudio/static/media/assistent.6d83df8a46ea1f9a244d.png",
+    "index.html": "/NHStudio/index.html",
+    "static/media/HambergurMenu.svg": "/NHStudio/static/media/HambergurMenu.9955f00c01a0988ffe2fb16386e78554.svg",
+    "main.cf7f5eef.css.map": "/NHStudio/static/css/main.cf7f5eef.css.map",
+    "main.496683da.js.map": "/NHStudio/static/js/main.496683da.js.map"
   },
   "entrypoints": [
-    "static/css/main.eaa37d15.css",
-    "static/js/main.75445a13.js"
+    "static/css/main.cf7f5eef.css",
+    "static/js/main.496683da.js"
   ]
 }
