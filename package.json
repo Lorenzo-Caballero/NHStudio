@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lorenzo-caballero.github.io/LennitaBB"
+  "homepage": "https://lorenzo-caballero.github.io/NHStudio/"
 ,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
