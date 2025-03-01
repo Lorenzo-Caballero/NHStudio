@@ -4,7 +4,6 @@ import videoFile from "./video.mp4"; // Ajusta la ruta según corresponda
 const HeroBanner = () => {
   return (
     <div className="w-full h-screen flex flex-col md:flex-row items-center justify-center md:mt-0 md:pt-0 mt-5 pt-20">
-      {/* Contenedor del video */}
       <div className="w-full md:w-1/2 h-full relative z-10">
         <video
           className="w-full h-full object-cover"

@@ -5,7 +5,7 @@ import whatsAppIcon from '../assets/whatshapp3d-removebg-preview.png'; // Asegú
 const WhatsAppButton = () => {
   const handleWhatsAppRedirect = () => {
     // Reemplaza "123456789" con el número de WhatsApp al que quieres redirigir
-    window.open(`https://wa.me/123456789`, '_blank');
+    window.open(`https://wa.me/2233407440`, '_blank');
   };
 
   return (

@@ -35,8 +35,8 @@ const Home = () => {
       <HeroBanner />
       <Overview />
       <FeaturedProducts />
-      <ChatBot/>
       <WhatsAppButton/>
+      <ChatBot/>
       <Collage />
     </motion.main>
   );
