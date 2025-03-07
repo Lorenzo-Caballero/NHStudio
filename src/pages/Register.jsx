@@ -47,7 +47,7 @@ const Register = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await fetch('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/clientes', {
+        const response = await fetch('https://restapi-lennitabb-production.up.railway.app/api/clientes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

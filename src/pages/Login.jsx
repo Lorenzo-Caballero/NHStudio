@@ -35,7 +35,7 @@ const Login = () => {
     setLoading(true); // Activamos la carga al enviar el formulario
 
     try {
-      const response = await fetch('https://nodejs-restapi-mysql-fauno-production.up.railway.app/api/clientes/login', {
+      const response = await fetch('https://restapi-lennitabb-production.up.railway.app/api/clientes/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
