@@ -44,7 +44,7 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
 
 
       const response = await axios.post(
-        "http://localhost:4000/api/products/",
+        "https://restapi-lennitabb-production.up.railway.app/api/designs",
         JSON.stringify({ ...values, image: values.image }), // Enviar la URL acortada
         {
           headers: {
