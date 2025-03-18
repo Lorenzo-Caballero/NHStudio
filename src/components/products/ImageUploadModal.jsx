@@ -19,50 +19,41 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      convertImageToBase64(file);
-    }
-  };
-
-  const convertImageToBase64 = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
       setValues((prevValues) => ({
         ...prevValues,
-        image: reader.result,
+        image: file, // Guarda el archivo directamente
       }));
-    };
+    }
   };
-  
 
   const handleUpload = async () => {
     try {
-      if (!values.name || !values.price || !values.image) {
-        console.error("Por favor complete todos los campos.");
-        return;
-      }
-
-
-      const response = await axios.post(
-        "https://restapi-lennitabb-production.up.railway.app/api/designs",
-        JSON.stringify({ ...values, image: values.image }), // Enviar la URL acortada
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+        if (!values.name || !values.price || !values.image) {
+            console.error("Por favor complete todos los campos.");
+            return;
         }
-      );
 
-      if (response.status === 200) {
-        console.log("Diseño creado exitosamente");
-        onClose();
-      } else {
-        console.error("Error al subir el diseño:", response.statusText);
-      }
+        const formData = new FormData();
+        formData.append('name', values.name); // Usar 'values.name'
+        formData.append('price', values.price); // Usar 'values.price'
+        formData.append('image', values.image); // Usar 'values.image' en lugar de 'selectedImage'
+
+        const response = await axios.post(
+            'https://restapi-lennitabb-production.up.railway.app/api/designs',
+            formData
+        );
+
+        if (response.status === 200) {
+            console.log("Diseño creado exitosamente");
+            onClose();
+        } else {
+            console.error("Error al subir el diseño:", response.statusText);
+        }
     } catch (error) {
-      console.error("Error al subir la imagen:", error);
+        console.error("Error al subir la imagen:", error);
     }
-  };
+};
+
 
   return (
     <div
@@ -95,7 +86,8 @@ const ImageUploadModal = ({ isOpen, onClose }) => {
         <div className="mb-4">
           <input
             type="file"
-            accept="image/*"
+            name="image" 
+            accept="image/*" 
             onChange={handleImageChange}
             className="mb-4"
           />

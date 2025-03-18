@@ -6,6 +6,7 @@ import './featuredProducts.css';
 
 const FeaturedProducts = () => {
     const products = useSelector((state) => state.products.products);
+    {console.log("products",products)}
 
     return (
         <div className='w-full min-h-screen py-40 bg-gradient-to-br from-[#4779a4] to-[#f7e7ce] text-center px-4 md:px-10'>
@@ -25,11 +26,12 @@ const FeaturedProducts = () => {
                                 </span>
                             </Link>
                             <img 
-                                className='w-full h-[225px] object-contain rounded-md transition-transform duration-300 transform group-hover:scale-105' 
-                                src={product.image} 
-                                alt={product.name} 
-                                style={{ animationDelay: `${index * 0.2}s` }} 
-                            />
+    className='w-full h-[225px] object-contain rounded-md transition-transform duration-300 transform group-hover:scale-105' 
+    src={product.images?.data ? `data:${product.images.contentType};base64,${product.images.data}` : 'ruta/default.jpg'} 
+    alt={product.name} 
+    style={{ animationDelay: `${index * 0.2}s` }} 
+/>
+
                         </div>
                         <footer className='flex mt-4 justify-between items-center px-4'>
                             <h4 className='mb-0 text-[#2c3e50] font-semibold'>{product.name}</h4>
