@@ -36,8 +36,8 @@ const ProductDetail = () => {
         name,
         description,
         price,
-      //  brand,
-       // sku,
+        //  brand,
+        // sku,
         image,
     } = product;
 
@@ -58,7 +58,7 @@ const ProductDetail = () => {
 
             // Convertir el precio a un número
             const numericPrice = parseFloat(price);
-            
+
             const response = await fetch(`https://restapi-lennitabb-production.up.railway.app/api/transactions`, {
                 method: 'POST',
                 headers: {
@@ -112,8 +112,9 @@ const ProductDetail = () => {
                     <div className='flex'>
                         <div className='w-1/2 pr-8'>
                             <img
-                                src={image}
-                                alt=""
+                                src={product.images?.data ? `data:${product.images.contentType};base64,${product.images.data}` : 'ruta/default.jpg'}
+                                alt={product.name}
+
                                 className="w-full rounded-lg md:max-w-[200px] lg:max-w-[200px]"
                             />
                         </div>

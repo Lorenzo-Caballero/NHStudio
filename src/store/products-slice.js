@@ -103,6 +103,12 @@ const productsSlice = createSlice({
                 shipping: false
             }
         },
+        deleteProduct(state, action) {
+            state.products = state.products.filter(product => product.id !== action.payload);
+            state.filteredProducts = state.filteredProducts.filter(product => product.id !== action.payload);
+        }
+        
+,        
         setProductDetails: (state, action) => {
             state.productDetails = action.payload;
         },

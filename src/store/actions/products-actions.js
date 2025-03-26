@@ -92,6 +92,33 @@ export const addProduct = ({ product }) => {
         }
     };
 };
+// Eliminar un producto
+export const deleteProduct = (id) => {
+    return async (dispatch) => {
+        try {
+            // Activamos el estado de carga
+            dispatch(uiActions.productsLoading());
+
+            // Hacemos la petición DELETE a la API
+            const response = await axios.delete(`${API_URL}/${id}`);
+
+            if (response.status === 200) {
+                // Eliminamos el producto en el estado global
+                dispatch(productsActions.deleteProduct(id));
+
+                // Volvemos a cargar la lista de productos
+                dispatch(getProducts());
+            } else {
+                throw new Error('Error al eliminar el producto');
+            }
+        } catch (error) {
+            console.error('Error eliminando producto:', error);
+            dispatch(uiActions.setError('Error al eliminar el producto'));
+        } finally {
+            dispatch(uiActions.productsLoading(false));
+        }
+    };
+};
 
 // Actualizar un producto existente
 export const updateProduct = ({ product, id }) => {
