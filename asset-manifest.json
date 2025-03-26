@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/NHStudio/static/css/main.001afc65.css",
-    "main.js": "/NHStudio/static/js/main.1e9ca837.js",
+    "main.css": "/NHStudio/static/css/main.37d4350b.css",
+    "main.js": "/NHStudio/static/js/main.01d5551e.js",
     "static/media/video.mp4": "/NHStudio/static/media/video.50f170a19cc3d0e21925.mp4",
     "static/media/imagen5.png": "/NHStudio/static/media/imagen5.d7070868f78692f6c38d.png",
     "static/media/imagen7.png": "/NHStudio/static/media/imagen7.4d88b7ecb006f2902b7f.png",
@@ -18,11 +18,11 @@
     "static/media/assistent.png": "/NHStudio/static/media/assistent.6d83df8a46ea1f9a244d.png",
     "index.html": "/NHStudio/index.html",
     "static/media/HambergurMenu.svg": "/NHStudio/static/media/HambergurMenu.9955f00c01a0988ffe2fb16386e78554.svg",
-    "main.001afc65.css.map": "/NHStudio/static/css/main.001afc65.css.map",
-    "main.1e9ca837.js.map": "/NHStudio/static/js/main.1e9ca837.js.map"
+    "main.37d4350b.css.map": "/NHStudio/static/css/main.37d4350b.css.map",
+    "main.01d5551e.js.map": "/NHStudio/static/js/main.01d5551e.js.map"
   },
   "entrypoints": [
-    "static/css/main.001afc65.css",
-    "static/js/main.1e9ca837.js"
+    "static/css/main.37d4350b.css",
+    "static/js/main.01d5551e.js"
   ]
 }
