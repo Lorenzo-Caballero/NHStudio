@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "./store/actions/products-actions";
+import { getProducts} from "./store/actions/products-actions";
 import { AnimatePresence } from "framer-motion";
 
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
+import Games from './pages/Gamess';
+import Preguntados from "./pages/Preguntados";
+import JuegoOtaku from "./pages/JuegoOtaku";
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
@@ -62,6 +65,8 @@ const App = () => {
 
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/games" element={<Games/>} />
+
               <Route path="/products" element={<Products />} />
               <Route path="/products/:productId" element={<ProductDetail />} />
             </Route>
@@ -92,7 +97,6 @@ const App = () => {
         </AnimatePresence>
         {!isAdmin && <Footer />}
       </AuthProvider>
-
     </>
   );
 }
