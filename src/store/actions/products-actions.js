@@ -3,7 +3,7 @@ import { uiActions } from '../ui-slice';
 import axios from 'axios';
 
 // URL de la API
-const API_URL = 'https://restapi-lennitabb-production.up.railway.app/api/designs';
+const API_URL = 'https://dimgrey-gnu-703361.hostingersite.com/index.php?recurso=designs';
 
 // Función para obtener los productos desde la API
 export const getProducts = () => {

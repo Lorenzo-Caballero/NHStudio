@@ -110,6 +110,11 @@ const MainNavigation = () => {
                   Diseños
                 </NavLink>
               </li>
+              <li>
+                <NavLink className="ml-2 p-2 lg:text-lg font-semibold" to="/games">
+                  Juegos
+                </NavLink>
+              </li>
             </ul>
           </div>
 
@@ -245,7 +250,11 @@ const MainNavigation = () => {
             Diseños
           </NavLink>
         </li>
-
+        <li className="border-b-2 border-zinc-300 w-full mt-4 text-lg font-semibold text-gray-600">
+          <NavLink to="/games" onClick={navHandler}>
+            Juegos
+          </NavLink>
+        </li>
         {/* Carrito y login */}
         <div className="flex flex-col items-center">
           <NavLink to="/cart" className="relative ml-1">
@@ -349,8 +358,8 @@ const MainNavigation = () => {
             </div>
 
 
-</div>
           </div>
+        </div>
       </ul>
     </div>
   );

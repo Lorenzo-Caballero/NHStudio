@@ -14,9 +14,7 @@ import TheSpinner from "../layout/TheSpinner";
 
 
 const containerVariants = {
-  hidden: {
-    opacity: 0
-  },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: { duration: .3 }
@@ -30,6 +28,7 @@ const containerVariants = {
 const Register = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.ui.registerLoading);
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -47,22 +46,25 @@ const Register = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await fetch('https://restapi-lennitabb-production.up.railway.app/api/clientes', {
+        const response = await fetch('https://dimgrey-gnu-703361.hostingersite.com/index.php?recurso=clientes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({
+            name: values.name,
+            email: values.email,
+            password: values.password,
+          }),
         });
-  
+
+        const data = await response.json();
+
         if (response.ok) {
-          // Registro exitoso, puedes realizar acciones adicionales si es necesario
-          console.log('Usuario registrado exitosamente');
-          // Despacha la acción de registro para actualizar el estado en Redux
-          await dispatch(register(values));
+          console.log('Usuario registrado exitosamente:', data);
+          await dispatch(register(data));
         } else {
-          // Manejar el caso en que la respuesta no sea exitosa
-          console.error('Error al registrar usuario:', response.statusText);
+          console.error('Error al registrar usuario:', data.message || response.statusText);
         }
       } catch (error) {
         console.error('Error al realizar la solicitud POST:', error);
@@ -84,10 +86,9 @@ const Register = () => {
         </h2>
         {loading ? <TheSpinner /> : 
         <form onSubmit={formik.handleSubmit}>
+          {/* Nombre */}
           <div className="flex flex-col space-y-1 mb-4">
-            <label htmlFor="name" className="font-semibold tracking-wider">
-              Nombre
-            </label>
+            <label htmlFor="name" className="font-semibold tracking-wider">Nombre</label>
             <div className="flex py-1">
               <span className="flex items-center justify-center border border-gray-300 border-r-0 py-2 px-3 bg-gray-300  text-black">
                 <FaUserAlt />
@@ -104,15 +105,12 @@ const Register = () => {
               />
             </div>
             {formik.touched.name && formik.errors.name && (
-              <p className="text-xs font-semibold text-red-600">
-                {formik.errors.name}
-              </p>
+              <p className="text-xs font-semibold text-red-600">{formik.errors.name}</p>
             )}
           </div>
+          {/* Email */}
           <div className="flex flex-col space-y-1 mb-4">
-            <label htmlFor="email" className="font-semibold tracking-wider">
-              Email
-            </label>
+            <label htmlFor="email" className="font-semibold tracking-wider">Email</label>
             <div className="flex py-1">
               <span className="flex items-center justify-center border border-gray-300 border-r-0 py-2 px-3 bg-gray-300  text-black">
                 <MdEmail />
@@ -129,15 +127,12 @@ const Register = () => {
               />
             </div>
             {formik.touched.email && formik.errors.email && (
-              <p className="text-xs font-semibold text-red-600">
-                {formik.errors.email}
-              </p>
+              <p className="text-xs font-semibold text-red-600">{formik.errors.email}</p>
             )}
           </div>
+          {/* Contraseña */}
           <div className="flex flex-col space-y-1 mb-4">
-            <label htmlFor="password" className="font-semibold tracking-wider">
-              Contraseña
-            </label>
+            <label htmlFor="password" className="font-semibold tracking-wider">Contraseña</label>
             <div className="flex py-1">
               <span className="flex items-center justify-center border border-gray-300 border-r-0 py-2 px-3 bg-gray-300  text-black">
                 <RiLockPasswordFill />
@@ -157,11 +152,9 @@ const Register = () => {
               <p className="text-xs text-red-600">{formik.errors.password}</p>
             )}
           </div>
+          {/* Confirmar Contraseña */}
           <div className="flex flex-col space-y-1 mb-4">
-            <label
-              htmlFor="password_confirmation"
-              className="font-semibold tracking-wider"
-            >
+            <label htmlFor="password_confirmation" className="font-semibold tracking-wider">
               Confirmar Contraseña
             </label>
             <div className="flex py-1">
@@ -179,12 +172,9 @@ const Register = () => {
                 placeholder="********"
               />
             </div>
-            {formik.touched.password_confirmation &&
-              formik.errors.password_confirmation && (
-                <p className="text-xs text-red-600">
-                  {formik.errors.password_confirmation}
-                </p>
-              )}
+            {formik.touched.password_confirmation && formik.errors.password_confirmation && (
+              <p className="text-xs text-red-600">{formik.errors.password_confirmation}</p>
+            )}
           </div>
           <hr />
           <button
@@ -192,7 +182,7 @@ const Register = () => {
             className="px-4 py-2 block mt-3 ml-auto text-primary border border-primary hover:text-white hover:bg-primary rounded-md"
           >
             <span className="inline-flex justify-content-center mr-1 text-center">
-              <FiLogIn />{" "}
+              <FiLogIn />
             </span>
             Enviar
           </button>

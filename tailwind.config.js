@@ -18,6 +18,19 @@ module.exports = {
           200: "#F8E3B4",
         },
       },
+      animation: {
+        'shake-fall': 'shake 0.5s, fall 1s forwards',
+      },
+      keyframes: {
+        shake: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '20%, 60%': { transform: 'translateX(-10px)' },
+          '40%, 80%': { transform: 'translateX(10px)' },
+        },
+        fall: {
+          to: { transform: 'translateY(300px)', opacity: 0 },
+        },
+      },
     },
   },
   plugins: [
