@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CohereClient } from "cohere-ai";
 import axios from 'axios';
 import assistent from "../../assets/assistent.png";
-
+import API_URL from '../../config';
 const ChatBot = () => {
   const [chatAbierto, setChatAbierto] = useState(false);
   const [mensajes, setMensajes] = useState([]);
@@ -21,7 +21,7 @@ const ChatBot = () => {
 
   const obtenerTokenCohere = async () => {
     try {
-      const response = await axios.get('https://dimgrey-gnu-703361.hostingersite.com/index.php?recurso=apiai');
+      const response = await axios.get(API_URL);
       const token = response.data[0]?.ia;
       setCohereToken(token);
     } catch (error) {
