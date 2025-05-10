@@ -9,7 +9,6 @@ import About from './pages/About';
 import Products from './pages/Products';
 import Games from './pages/Gamess';
 import Preguntados from "./pages/Preguntados";
-import JuegoOtaku from "./pages/JuegoOtaku";
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';

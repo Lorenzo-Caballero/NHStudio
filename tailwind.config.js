@@ -4,6 +4,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      'pulse-slow': 'pulse 6s ease-in-out infinite',
       colors: {
         primary: "#243E8B",
         secondary: {

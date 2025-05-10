@@ -1,5 +1,4 @@
 import { useState } from "react";
-import JuegoOtaku from "./JuegoOtaku"
 import Preguntados from "./Preguntados"
 import Roullette from "./Roullette";
 const games = [
@@ -29,8 +28,7 @@ export default function GamesGrid() {
 
     const renderGame = () => {
         switch (selectedGame) {
-            case "gacha":
-                return <JuegoOtaku />;
+     
             case "ruleta":
                 return <Roullette />;
             case "preguntados":

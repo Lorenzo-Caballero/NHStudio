@@ -8,6 +8,7 @@ import { persistStore } from "redux-persist";
 
 import "./index.css";
 import App from "./App";
+import AppGames from "./AppGames";
 import store from "./store";
 
 let persistor = persistStore(store);
@@ -16,7 +17,7 @@ ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
-        <App />
+        <AppGames />
       </BrowserRouter>
     </PersistGate>
   </Provider>,
