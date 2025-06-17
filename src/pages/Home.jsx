@@ -1,8 +1,16 @@
 import React from 'react';
-import { useState } from 'react';
+
 import { motion } from 'framer-motion';
-import CierreDeCaja from './CierreDeCaja';
-import AperturaDeCaja from './AperturaDeCaja';
+import WhatYouLearn from '../components/home/WhatYouLearn';
+import Hero from "../components/home/Hero";
+import Overview from '../components/home/Overview';
+import FeaturedProducts from '../components/home/FeaturedProducts';
+import ChatBot from '../components/home/ChatBot';
+import WhatsAppButton from "../pages/WhatsAppButton";
+import Collage from "../components/home/Collage"; 
+import OnlyCollage from '../components/home/OnlyCollage';
+import CourseContent from '../components/home/CourseContent';
+import CoursePriceInfo from '../components/home/CoursePrice';
 const containerVariants = {
   hidden: {
     opacity: 0
@@ -19,29 +27,19 @@ const containerVariants = {
 
 
 const Home = () => {
-  const [aperturaData, setAperturaData] = useState(null);
-
   return (
     <motion.main
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      exit="exit"
     >
-   {!aperturaData ? (
-        <AperturaDeCaja
-          onConfirmar={(data) => setAperturaData(data)}
-        />
-      ) : (
-        <CierreDeCaja
-          apertura={aperturaData}
-          onCerrarCaja={(cierreData) => {
-            console.log('Cierre completo enviado:', cierreData);
-            // Aquí puedes reiniciar o guardar el cierre
-            setAperturaData(null);
-          }}
-        />
-      )}
+      <Hero />
+      <WhatYouLearn />
+      <Overview />
+      <CourseContent/>
+      <WhatsAppButton/>
+      <CoursePriceInfo/>
+      <OnlyCollage/>
     </motion.main>
   );
 };

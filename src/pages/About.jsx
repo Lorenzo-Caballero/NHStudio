@@ -57,9 +57,8 @@ const About = () => {
             exit="exit"
         >
             <WhatsAppButton/>
-                  <ChatBot/>
 
-            <PageHero title="Acerca de NH Studio" />
+            <PageHero title="Luciana Avalos" />
             <div className='w-full py-20'>
                 <div className='w-[85vw] flex mx-auto'>
                     <div className='grid sm:grid-cols-1 md:grid-cols-2'>

@@ -4,8 +4,10 @@ import whatsAppIcon from '../assets/whatshapp3d-removebg-preview.png'; // Asegú
 
 const WhatsAppButton = () => {
   const handleWhatsAppRedirect = () => {
-    // Reemplaza "123456789" con el número de WhatsApp al que quieres redirigir
-    window.open(`https://wa.me/2233407440`, '_blank');
+    const phoneNumber = "5492235453354";
+    const message = "Hola Luciana! Te hablo desde tu página web. Quiero inscribirme al curso de tatuajes!";
+    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
   };
 
   return (

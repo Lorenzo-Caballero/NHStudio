@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts} from "./store/actions/products-actions";
+import { getProducts } from "./store/actions/products-actions";
 import { AnimatePresence } from "framer-motion";
 
 import Home from './pages/Home';
+import FAQ from './pages/FAQ';
 import About from './pages/About';
 import Products from './pages/Products';
 import Games from './pages/Gamess';
@@ -22,13 +23,13 @@ import TheProducts from "./components/dashboard/TheProducts";
 import AddProduct from "./components/dashboard/AddProduct";
 import UpdateProducts from "./components/dashboard/UpdateProducts";
 import ProductUpdate from "./components/dashboard/ProductUpdate";
-
+import Collage from "./components/home/Collage";
 import LoginRedirect from "./components/auth/LoginRedirect";
 import RegisterRedirect from "./components/auth/RegisterRedirect";
 import DashboardRedirect from "./components/auth/DashboardRedirect";
 import HomeRedirect from "./components/auth/HomeRedirect";
 //import Games from "./components/home/Games";
-import { AuthProvider } from "./components/context/AuthContext"; 
+import { AuthProvider } from "./components/context/AuthContext";
 import HugginFace from "./components/home/HugginFace";
 
 
@@ -50,7 +51,7 @@ const App = () => {
     <>
       <AuthProvider>
 
-      {!isAdmin && <MainNavigation />}
+        {!isAdmin && <MainNavigation />}
 
         <AnimatePresence exitBeforeEnter >
 
@@ -58,36 +59,33 @@ const App = () => {
 
             <Route element={<HomeRedirect />}>
               <Route path="/" element={<Home />} />
-              <Route path="/NHStudio" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/HugginFace" element={<HugginFace />} />
+              {//              <Route path="/about" element={<About />} />
+              }
 
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/games" element={<Games/>} />
+              { //             <Route path="/games" element={<Games/>} />
+              }              <Route path="/tattoos" element={<Collage />} />
 
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/:productId" element={<ProductDetail />} />
+<Route path="/FAQ" element={<FAQ />} />
+
             </Route>
 
-            <Route element={<LoginRedirect />}>
+            {/*       <Route element={<LoginRedirect />}>
               <Route path="/login" element={<Login />} />
             </Route>
 
             <Route element={<RegisterRedirect />}>
               <Route path="/register" element={<Register />} />
-            </Route>
+</Route>*/}
 
-            <Route element={<DashboardRedirect />}>
+            {/*           <Route element={<DashboardRedirect />}>
               <Route path="admin/dashboard" element={<Dashboard />}>
                 <Route path="products" element={<TheProducts />} />
                 <Route path="addproduct" element={<AddProduct />} />
                 <Route path="updateproducts">
                   <Route index element={<UpdateProducts />} />
                   <Route path=":productId" element={<ProductUpdate />} />
-                </Route>
-              </Route>
-            </Route>
+                </Route>*/}
+
 
             <Route path="*" element={<NotFound />} />
 
